@@ -1,0 +1,8 @@
+
+State Machine - |lab3|y
+Name y.D y.C y.B y.A y.E 
+y.A 0 0 0 0 0 
+y.B 0 0 1 1 0 
+y.C 0 1 0 1 0 
+y.D 1 0 0 1 0 
+y.E 0 0 0 1 1 

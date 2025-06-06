@@ -1,0 +1,360 @@
+// Copyright (C) 1991-2008 Altera Corporation
+// Your use of Altera Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Altera Program License 
+// Subscription Agreement, Altera MegaCore Function License 
+// Agreement, or other applicable license agreement, including, 
+// without limitation, that your use is for the sole purpose of 
+// programming logic devices manufactured by Altera and sold by 
+// Altera or its authorized distributors.  Please refer to the 
+// applicable agreement for further details.
+
+// VENDOR "Altera"
+// PROGRAM "Quartus II"
+// VERSION "Version 8.1 Build 163 10/28/2008 SJ Web Edition"
+
+// DATE "02/27/2023 20:53:42"
+
+// 
+// Device: Altera EPF10K30ETC144-1 Package TQFP144
+// 
+
+// 
+// This Verilog file should be used for Custom Verilog HDL only
+// 
+
+`timescale 1 ps/ 1 ps
+
+module lab4 (
+	cash_in,
+	rst,
+	clk,
+	purchase,
+	cash_return);
+input 	[1:0] cash_in;
+input 	rst;
+input 	clk;
+output 	purchase;
+output 	[1:0] cash_return;
+
+wire gnd = 1'b0;
+wire vcc = 1'b1;
+
+tri1 devclrn;
+tri1 devpor;
+tri1 devoe;
+// synopsys translate_off
+initial $sdf_annotate("lab4_v.sdo");
+// synopsys translate_on
+
+wire \rst~dataout ;
+wire \clk~dataout ;
+wire \current_state.state1~regout ;
+wire \current_state.state0~regout ;
+wire \Selector4~77_combout ;
+wire \Selector0~97_combout ;
+wire \current_state.state2~regout ;
+wire \Selector5~49_combout ;
+wire [1:0] \cash_in~dataout ;
+
+
+// atom is at PIN_124
+flex10ke_io \cash_in[1]~I (
+	.datain(gnd),
+	.clk(gnd),
+	.ena(vcc),
+	.aclr(gnd),
+	.oe(gnd),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.devoe(devoe),
+	.dataout(\cash_in~dataout [1]),
+	.padio(cash_in[1]));
+// synopsys translate_off
+defparam \cash_in[1]~I .feedback_mode = "from_pin";
+defparam \cash_in[1]~I .operation_mode = "input";
+defparam \cash_in[1]~I .reg_source_mode = "none";
+// synopsys translate_on
+
+// atom is at PIN_54
+flex10ke_io \cash_in[0]~I (
+	.datain(gnd),
+	.clk(gnd),
+	.ena(vcc),
+	.aclr(gnd),
+	.oe(gnd),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.devoe(devoe),
+	.dataout(\cash_in~dataout [0]),
+	.padio(cash_in[0]));
+// synopsys translate_off
+defparam \cash_in[0]~I .feedback_mode = "from_pin";
+defparam \cash_in[0]~I .operation_mode = "input";
+defparam \cash_in[0]~I .reg_source_mode = "none";
+// synopsys translate_on
+
+// atom is at PIN_126
+flex10ke_io \rst~I (
+	.datain(gnd),
+	.clk(gnd),
+	.ena(vcc),
+	.aclr(gnd),
+	.oe(gnd),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.devoe(devoe),
+	.dataout(\rst~dataout ),
+	.padio(rst));
+// synopsys translate_off
+defparam \rst~I .feedback_mode = "from_pin";
+defparam \rst~I .operation_mode = "input";
+defparam \rst~I .reg_source_mode = "none";
+// synopsys translate_on
+
+// atom is at PIN_55
+flex10ke_io \clk~I (
+	.datain(gnd),
+	.clk(gnd),
+	.ena(vcc),
+	.aclr(gnd),
+	.oe(gnd),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.devoe(devoe),
+	.dataout(\clk~dataout ),
+	.padio(clk));
+// synopsys translate_off
+defparam \clk~I .feedback_mode = "from_pin";
+defparam \clk~I .operation_mode = "input";
+defparam \clk~I .reg_source_mode = "none";
+// synopsys translate_on
+
+// atom is at LC3_F34
+flex10ke_lcell \current_state.state1 (
+// Equation(s):
+// \current_state.state1~regout  = DFFEA(\cash_in~dataout [0] & !\cash_in~dataout [1] & !\current_state.state0~regout , GLOBAL(\clk~dataout ), !GLOBAL(\rst~dataout ), , , , )
+
+	.dataa(vcc),
+	.datab(\cash_in~dataout [0]),
+	.datac(\cash_in~dataout [1]),
+	.datad(\current_state.state0~regout ),
+	.aclr(\rst~dataout ),
+	.aload(gnd),
+	.clk(\clk~dataout ),
+	.cin(gnd),
+	.cascin(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.combout(),
+	.regout(\current_state.state1~regout ),
+	.cout(),
+	.cascout());
+// synopsys translate_off
+defparam \current_state.state1 .clock_enable_mode = "false";
+defparam \current_state.state1 .lut_mask = "000c";
+defparam \current_state.state1 .operation_mode = "normal";
+defparam \current_state.state1 .output_mode = "reg_only";
+defparam \current_state.state1 .packed_mode = "false";
+// synopsys translate_on
+
+// atom is at LC1_F34
+flex10ke_lcell \current_state.state0 (
+// Equation(s):
+// \current_state.state0~regout  = DFFEA(\cash_in~dataout [1] & !\current_state.state0~regout  & !\cash_in~dataout [0] # !\cash_in~dataout [1] & \cash_in~dataout [0] & (\current_state.state1~regout  # !\current_state.state0~regout ), GLOBAL(\clk~dataout ), 
+// !GLOBAL(\rst~dataout ), , , , )
+
+	.dataa(\cash_in~dataout [1]),
+	.datab(\current_state.state0~regout ),
+	.datac(\cash_in~dataout [0]),
+	.datad(\current_state.state1~regout ),
+	.aclr(\rst~dataout ),
+	.aload(gnd),
+	.clk(\clk~dataout ),
+	.cin(gnd),
+	.cascin(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.combout(),
+	.regout(\current_state.state0~regout ),
+	.cout(),
+	.cascout());
+// synopsys translate_off
+defparam \current_state.state0 .clock_enable_mode = "false";
+defparam \current_state.state0 .lut_mask = "5212";
+defparam \current_state.state0 .operation_mode = "normal";
+defparam \current_state.state0 .output_mode = "reg_only";
+defparam \current_state.state0 .packed_mode = "false";
+// synopsys translate_on
+
+// atom is at LC2_F34
+flex10ke_lcell \Selector4~77 (
+// Equation(s):
+// \Selector4~77_combout  = \cash_in~dataout [1] & (\cash_in~dataout [0] # \current_state.state0~regout ) # !\cash_in~dataout [1] & \cash_in~dataout [0] & \current_state.state0~regout  & !\current_state.state1~regout 
+
+	.dataa(\cash_in~dataout [1]),
+	.datab(\cash_in~dataout [0]),
+	.datac(\current_state.state0~regout ),
+	.datad(\current_state.state1~regout ),
+	.aclr(gnd),
+	.aload(gnd),
+	.clk(gnd),
+	.cin(gnd),
+	.cascin(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.combout(\Selector4~77_combout ),
+	.regout(),
+	.cout(),
+	.cascout());
+// synopsys translate_off
+defparam \Selector4~77 .clock_enable_mode = "false";
+defparam \Selector4~77 .lut_mask = "a8e8";
+defparam \Selector4~77 .operation_mode = "normal";
+defparam \Selector4~77 .output_mode = "comb_only";
+defparam \Selector4~77 .packed_mode = "false";
+// synopsys translate_on
+
+// atom is at LC6_F34
+flex10ke_lcell \Selector0~97 (
+// Equation(s):
+// \Selector0~97_combout  = \cash_in~dataout [1] & (\current_state.state0~regout  & (!\current_state.state1~regout ) # !\current_state.state0~regout  & \cash_in~dataout [0]) # !\cash_in~dataout [1] & !\cash_in~dataout [0] & \current_state.state0~regout  & 
+// \current_state.state1~regout 
+
+	.dataa(\cash_in~dataout [1]),
+	.datab(\cash_in~dataout [0]),
+	.datac(\current_state.state0~regout ),
+	.datad(\current_state.state1~regout ),
+	.aclr(gnd),
+	.aload(gnd),
+	.clk(gnd),
+	.cin(gnd),
+	.cascin(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.combout(\Selector0~97_combout ),
+	.regout(),
+	.cout(),
+	.cascout());
+// synopsys translate_off
+defparam \Selector0~97 .clock_enable_mode = "false";
+defparam \Selector0~97 .lut_mask = "18a8";
+defparam \Selector0~97 .operation_mode = "normal";
+defparam \Selector0~97 .output_mode = "comb_only";
+defparam \Selector0~97 .packed_mode = "false";
+// synopsys translate_on
+
+// atom is at LC4_F34
+flex10ke_lcell \current_state.state2 (
+// Equation(s):
+// \current_state.state2~regout  = DFFEA(\cash_in~dataout [0] & \current_state.state1~regout  & (!\cash_in~dataout [1]) # !\cash_in~dataout [0] & (!\current_state.state0~regout  & \cash_in~dataout [1]), GLOBAL(\clk~dataout ), !GLOBAL(\rst~dataout ), , , , )
+
+	.dataa(\current_state.state1~regout ),
+	.datab(\cash_in~dataout [0]),
+	.datac(\current_state.state0~regout ),
+	.datad(\cash_in~dataout [1]),
+	.aclr(\rst~dataout ),
+	.aload(gnd),
+	.clk(\clk~dataout ),
+	.cin(gnd),
+	.cascin(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.combout(),
+	.regout(\current_state.state2~regout ),
+	.cout(),
+	.cascout());
+// synopsys translate_off
+defparam \current_state.state2 .clock_enable_mode = "false";
+defparam \current_state.state2 .lut_mask = "0388";
+defparam \current_state.state2 .operation_mode = "normal";
+defparam \current_state.state2 .output_mode = "reg_only";
+defparam \current_state.state2 .packed_mode = "false";
+// synopsys translate_on
+
+// atom is at LC5_F34
+flex10ke_lcell \Selector5~49 (
+// Equation(s):
+// \Selector5~49_combout  = \cash_in~dataout [0] & \cash_in~dataout [1] & (\current_state.state2~regout  # \current_state.state1~regout ) # !\cash_in~dataout [0] & !\cash_in~dataout [1] & \current_state.state2~regout 
+
+	.dataa(\cash_in~dataout [0]),
+	.datab(\cash_in~dataout [1]),
+	.datac(\current_state.state2~regout ),
+	.datad(\current_state.state1~regout ),
+	.aclr(gnd),
+	.aload(gnd),
+	.clk(gnd),
+	.cin(gnd),
+	.cascin(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.combout(\Selector5~49_combout ),
+	.regout(),
+	.cout(),
+	.cascout());
+// synopsys translate_off
+defparam \Selector5~49 .clock_enable_mode = "false";
+defparam \Selector5~49 .lut_mask = "9890";
+defparam \Selector5~49 .operation_mode = "normal";
+defparam \Selector5~49 .output_mode = "comb_only";
+defparam \Selector5~49 .packed_mode = "false";
+// synopsys translate_on
+
+// atom is at PIN_31
+flex10ke_io \purchase~I (
+	.datain(\Selector4~77_combout ),
+	.clk(gnd),
+	.ena(vcc),
+	.aclr(gnd),
+	.oe(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.devoe(devoe),
+	.dataout(),
+	.padio(purchase));
+// synopsys translate_off
+defparam \purchase~I .feedback_mode = "none";
+defparam \purchase~I .operation_mode = "output";
+defparam \purchase~I .reg_source_mode = "none";
+// synopsys translate_on
+
+// atom is at PIN_33
+flex10ke_io \cash_return[0]~I (
+	.datain(\Selector0~97_combout ),
+	.clk(gnd),
+	.ena(vcc),
+	.aclr(gnd),
+	.oe(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.devoe(devoe),
+	.dataout(),
+	.padio(cash_return[0]));
+// synopsys translate_off
+defparam \cash_return[0]~I .feedback_mode = "none";
+defparam \cash_return[0]~I .operation_mode = "output";
+defparam \cash_return[0]~I .reg_source_mode = "none";
+// synopsys translate_on
+
+// atom is at PIN_32
+flex10ke_io \cash_return[1]~I (
+	.datain(\Selector5~49_combout ),
+	.clk(gnd),
+	.ena(vcc),
+	.aclr(gnd),
+	.oe(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.devoe(devoe),
+	.dataout(),
+	.padio(cash_return[1]));
+// synopsys translate_off
+defparam \cash_return[1]~I .feedback_mode = "none";
+defparam \cash_return[1]~I .operation_mode = "output";
+defparam \cash_return[1]~I .reg_source_mode = "none";
+// synopsys translate_on
+
+endmodule

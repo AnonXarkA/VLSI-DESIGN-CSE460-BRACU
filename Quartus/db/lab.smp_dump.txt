@@ -1,0 +1,71 @@
+
+State Machine - |lab|x_or_next_state
+Name x_or_next_state.x_or2_S3 x_or_next_state.x_or2_S2 x_or_next_state.x_or2_S1 x_or_next_state.x_or2_S0 x_or_next_state.x_or2_S4 
+x_or_next_state.x_or2_S0 0 0 0 0 0 
+x_or_next_state.x_or2_S1 0 0 1 1 0 
+x_or_next_state.x_or2_S2 0 1 0 1 0 
+x_or_next_state.x_or2_S3 1 0 0 1 0 
+x_or_next_state.x_or2_S4 0 0 0 1 1 
+
+State Machine - |lab|x_or_current_state
+Name x_or_current_state.x_or2_S3 x_or_current_state.x_or2_S2 x_or_current_state.x_or2_S1 x_or_current_state.x_or2_S0 x_or_current_state.x_or2_S4 
+x_or_current_state.x_or2_S0 0 0 0 0 0 
+x_or_current_state.x_or2_S1 0 0 1 1 0 
+x_or_current_state.x_or2_S2 0 1 0 1 0 
+x_or_current_state.x_or2_S3 1 0 0 1 0 
+x_or_current_state.x_or2_S4 0 0 0 1 1 
+
+State Machine - |lab|add_next_state
+Name add_next_state.add2_S3 add_next_state.add2_S2 add_next_state.add2_S1 add_next_state.add2_S0 add_next_state.add2_S4 
+add_next_state.add2_S0 0 0 0 0 0 
+add_next_state.add2_S1 0 0 1 1 0 
+add_next_state.add2_S2 0 1 0 1 0 
+add_next_state.add2_S3 1 0 0 1 0 
+add_next_state.add2_S4 0 0 0 1 1 
+
+State Machine - |lab|add_current_state
+Name add_current_state.add2_S3 add_current_state.add2_S2 add_current_state.add2_S1 add_current_state.add2_S0 add_current_state.add2_S4 
+add_current_state.add2_S0 0 0 0 0 0 
+add_current_state.add2_S1 0 0 1 1 0 
+add_current_state.add2_S2 0 1 0 1 0 
+add_current_state.add2_S3 1 0 0 1 0 
+add_current_state.add2_S4 0 0 0 1 1 
+
+State Machine - |lab|and_next_state
+Name and_next_state.and2__S3 and_next_state.and2__S2 and_next_state.and2__S1 and_next_state.and2__S0 and_next_state.and2__S4 
+and_next_state.and2__S0 0 0 0 0 0 
+and_next_state.and2__S1 0 0 1 1 0 
+and_next_state.and2__S2 0 1 0 1 0 
+and_next_state.and2__S3 1 0 0 1 0 
+and_next_state.and2__S4 0 0 0 1 1 
+
+State Machine - |lab|and_current_state
+Name and_current_state.and2__S3 and_current_state.and2__S2 and_current_state.and2__S1 and_current_state.and2__S0 and_current_state.and2__S4 
+and_current_state.and2__S0 0 0 0 0 0 
+and_current_state.and2__S1 0 0 1 1 0 
+and_current_state.and2__S2 0 1 0 1 0 
+and_current_state.and2__S3 1 0 0 1 0 
+and_current_state.and2__S4 0 0 0 1 1 
+
+State Machine - |lab|sub_next_state
+Name sub_next_state.sub2_S3 sub_next_state.sub2_S2 sub_next_state.sub2_S1 sub_next_state.sub2_S0 sub_next_state.sub2_S4 
+sub_next_state.sub2_S0 0 0 0 0 0 
+sub_next_state.sub2_S1 0 0 1 1 0 
+sub_next_state.sub2_S2 0 1 0 1 0 
+sub_next_state.sub2_S3 1 0 0 1 0 
+sub_next_state.sub2_S4 0 0 0 1 1 
+
+State Machine - |lab|sub_current_state
+Name sub_current_state.sub2_S3 sub_current_state.sub2_S2 sub_current_state.sub2_S1 sub_current_state.sub2_S0 sub_current_state.sub2_S4 
+sub_current_state.sub2_S0 0 0 0 0 0 
+sub_current_state.sub2_S1 0 0 1 1 0 
+sub_current_state.sub2_S2 0 1 0 1 0 
+sub_current_state.sub2_S3 1 0 0 1 0 
+sub_current_state.sub2_S4 0 0 0 1 1 
+
+State Machine - |lab|current_state
+Name current_state.do_and current_state.do_add current_state.do_x_or current_state.do_sub 
+current_state.do_x_or 0 0 0 0 
+current_state.do_add 0 1 1 0 
+current_state.do_and 1 0 1 0 
+current_state.do_sub 0 0 1 1 

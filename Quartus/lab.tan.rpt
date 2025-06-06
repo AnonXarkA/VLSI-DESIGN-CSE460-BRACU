@@ -1,0 +1,870 @@
+Classic Timing Analyzer report for lab
+Fri Apr 21 11:41:51 2023
+Quartus II Version 8.1 Build 163 10/28/2008 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Timing Analyzer Settings
+  4. Clock Settings Summary
+  5. Clock Setup: 'clk'
+  6. Clock Hold: 'clk'
+  7. tsu
+  8. tco
+  9. tpd
+ 10. th
+ 11. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2008 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                                                                                                                                                ;
++------------------------------+------------------------------------------+---------------+----------------------------------+----------------------+-------------+------------+----------+--------------+
+; Type                         ; Slack                                    ; Required Time ; Actual Time                      ; From                 ; To          ; From Clock ; To Clock ; Failed Paths ;
++------------------------------+------------------------------------------+---------------+----------------------------------+----------------------+-------------+------------+----------+--------------+
+; Worst-case tsu               ; N/A                                      ; None          ; 8.900 ns                         ; A[0]                 ; Zero$latch  ; --         ; clk      ; 0            ;
+; Worst-case tco               ; N/A                                      ; None          ; 15.100 ns                        ; tmp3[1]              ; Sign        ; clk        ; --       ; 0            ;
+; Worst-case tpd               ; N/A                                      ; None          ; 13.700 ns                        ; B[3]                 ; Sign        ; --         ; --       ; 0            ;
+; Worst-case th                ; N/A                                      ; None          ; 2.300 ns                         ; B[1]                 ; C[1]$latch  ; --         ; clk      ; 0            ;
+; Clock Setup: 'clk'           ; N/A                                      ; None          ; 50.00 MHz ( period = 20.000 ns ) ; temp[1]              ; Carry$latch ; clk        ; clk      ; 0            ;
+; Clock Hold: 'clk'            ; Not operational: Clock Skew > Data Delay ; None          ; N/A                              ; current_state.do_and ; C[0]$latch  ; clk        ; clk      ; 25           ;
+; Total number of failed paths ;                                          ;               ;                                  ;                      ;             ;            ;          ; 25           ;
++------------------------------+------------------------------------------+---------------+----------------------------------+----------------------+-------------+------------+----------+--------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Settings                                                                                           ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+; Option                                                              ; Setting            ; From ; To ; Entity Name ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+; Device Name                                                         ; EPF10K30ETC144-1   ;      ;    ;             ;
+; Timing Models                                                       ; Final              ;      ;    ;             ;
+; Default hold multicycle                                             ; Same as Multicycle ;      ;    ;             ;
+; Cut paths between unrelated clock domains                           ; On                 ;      ;    ;             ;
+; Cut off read during write signal paths                              ; On                 ;      ;    ;             ;
+; Cut off feedback from I/O pins                                      ; On                 ;      ;    ;             ;
+; Report Combined Fast/Slow Timing                                    ; Off                ;      ;    ;             ;
+; Ignore Clock Settings                                               ; Off                ;      ;    ;             ;
+; Analyze latches as synchronous elements                             ; On                 ;      ;    ;             ;
+; Enable Recovery/Removal analysis                                    ; Off                ;      ;    ;             ;
+; Enable Clock Latency                                                ; Off                ;      ;    ;             ;
+; Use TimeQuest Timing Analyzer                                       ; Off                ;      ;    ;             ;
+; Number of source nodes to report per destination node               ; 10                 ;      ;    ;             ;
+; Number of destination nodes to report                               ; 10                 ;      ;    ;             ;
+; Number of paths to report                                           ; 200                ;      ;    ;             ;
+; Report Minimum Timing Checks                                        ; Off                ;      ;    ;             ;
+; Use Fast Timing Models                                              ; Off                ;      ;    ;             ;
+; Report IO Paths Separately                                          ; Off                ;      ;    ;             ;
+; Perform Multicorner Analysis                                        ; Off                ;      ;    ;             ;
+; Reports the worst-case path for each clock domain and analysis      ; Off                ;      ;    ;             ;
+; Removes common clock path pessimism (CCPP) during slack computation ; Off                ;      ;    ;             ;
+; Output I/O Timing Endpoint                                          ; Near End           ;      ;    ;             ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Settings Summary                                                                                                                                                             ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; Clock Node Name ; Clock Setting Name ; Type     ; Fmax Requirement ; Early Latency ; Late Latency ; Based on ; Multiply Base Fmax by ; Divide Base Fmax by ; Offset ; Phase offset ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; clk             ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'clk'                                                                                                                                                                                                             ;
++-------+------------------------------------------------+-----------------------------+-----------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack ; Actual fmax (period)                           ; From                        ; To                          ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-------+------------------------------------------------+-----------------------------+-----------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A   ; 50.00 MHz ( period = 20.000 ns )               ; temp[1]                     ; Carry$latch                 ; clk        ; clk      ; None                        ; None                      ; 7.500 ns                ;
+; N/A   ; 52.63 MHz ( period = 19.000 ns )               ; temp3[1]                    ; Carry$latch                 ; clk        ; clk      ; None                        ; None                      ; 7.200 ns                ;
+; N/A   ; 53.19 MHz ( period = 18.800 ns )               ; tmp[1]                      ; Carry$latch                 ; clk        ; clk      ; None                        ; None                      ; 6.600 ns                ;
+; N/A   ; 58.14 MHz ( period = 17.200 ns )               ; temp2[1]                    ; Carry$latch                 ; clk        ; clk      ; None                        ; None                      ; 6.200 ns                ;
+; N/A   ; 58.14 MHz ( period = 17.200 ns )               ; tmp3[1]                     ; Carry$latch                 ; clk        ; clk      ; None                        ; None                      ; 5.800 ns                ;
+; N/A   ; 60.24 MHz ( period = 16.600 ns )               ; tmp2[1]                     ; Carry$latch                 ; clk        ; clk      ; None                        ; None                      ; 5.700 ns                ;
+; N/A   ; 65.79 MHz ( period = 15.200 ns )               ; current_state.do_sub        ; Zero$latch                  ; clk        ; clk      ; None                        ; None                      ; 9.100 ns                ;
+; N/A   ; 67.57 MHz ( period = 14.800 ns )               ; sub_current_state.sub2_S1   ; Zero$latch                  ; clk        ; clk      ; None                        ; None                      ; 8.900 ns                ;
+; N/A   ; 76.92 MHz ( period = 13.000 ns )               ; and_current_state.and2__S3  ; Zero$latch                  ; clk        ; clk      ; None                        ; None                      ; 8.000 ns                ;
+; N/A   ; 84.75 MHz ( period = 11.800 ns )               ; sub_current_state.sub2_S3   ; Zero$latch                  ; clk        ; clk      ; None                        ; None                      ; 7.400 ns                ;
+; N/A   ; 90.91 MHz ( period = 11.000 ns )               ; current_state.do_and        ; Zero$latch                  ; clk        ; clk      ; None                        ; None                      ; 7.000 ns                ;
+; N/A   ; 92.59 MHz ( period = 10.800 ns )               ; current_state.do_x_or       ; C[1]$latch                  ; clk        ; clk      ; None                        ; None                      ; 6.100 ns                ;
+; N/A   ; 92.59 MHz ( period = 10.800 ns )               ; x_or_current_state.x_or2_S2 ; C[1]$latch                  ; clk        ; clk      ; None                        ; None                      ; 6.100 ns                ;
+; N/A   ; 92.59 MHz ( period = 10.800 ns )               ; current_state.do_x_or       ; C[2]$latch                  ; clk        ; clk      ; None                        ; None                      ; 5.900 ns                ;
+; N/A   ; 92.59 MHz ( period = 10.800 ns )               ; add_current_state.add2_S3   ; C[2]$latch                  ; clk        ; clk      ; None                        ; None                      ; 5.900 ns                ;
+; N/A   ; 94.34 MHz ( period = 10.600 ns )               ; sub_current_state.sub2_S2   ; Zero$latch                  ; clk        ; clk      ; None                        ; None                      ; 6.800 ns                ;
+; N/A   ; 94.34 MHz ( period = 10.600 ns )               ; C[0]$latch                  ; Zero$latch                  ; clk        ; clk      ; None                        ; None                      ; 7.400 ns                ;
+; N/A   ; 96.15 MHz ( period = 10.400 ns )               ; current_state.do_add        ; C[1]$latch                  ; clk        ; clk      ; None                        ; None                      ; 5.900 ns                ;
+; N/A   ; 96.15 MHz ( period = 10.400 ns )               ; current_state.do_add        ; C[2]$latch                  ; clk        ; clk      ; None                        ; None                      ; 5.700 ns                ;
+; N/A   ; 96.15 MHz ( period = 10.400 ns )               ; add_current_state.add2_S4   ; C[3]$latch                  ; clk        ; clk      ; None                        ; None                      ; 6.000 ns                ;
+; N/A   ; 98.04 MHz ( period = 10.200 ns )               ; and_current_state.and2__S3  ; C[2]$latch                  ; clk        ; clk      ; None                        ; None                      ; 5.600 ns                ;
+; N/A   ; 99.01 MHz ( period = 10.100 ns )               ; C[1]$latch                  ; Zero$latch                  ; clk        ; clk      ; None                        ; None                      ; 6.300 ns                ;
+; N/A   ; 100.00 MHz ( period = 10.000 ns )              ; and_current_state.and2__S1  ; Zero$latch                  ; clk        ; clk      ; None                        ; None                      ; 6.500 ns                ;
+; N/A   ; 100.00 MHz ( period = 10.000 ns )              ; and_current_state.and2__S2  ; Zero$latch                  ; clk        ; clk      ; None                        ; None                      ; 6.500 ns                ;
+; N/A   ; 102.04 MHz ( period = 9.800 ns )               ; x_or_current_state.x_or2_S3 ; C[2]$latch                  ; clk        ; clk      ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 102.04 MHz ( period = 9.800 ns )               ; x_or_current_state.x_or2_S4 ; C[3]$latch                  ; clk        ; clk      ; None                        ; None                      ; 5.700 ns                ;
+; N/A   ; 103.09 MHz ( period = 9.700 ns )               ; C[2]$latch                  ; Zero$latch                  ; clk        ; clk      ; None                        ; None                      ; 6.400 ns                ;
+; N/A   ; 104.17 MHz ( period = 9.600 ns )               ; and_current_state.and2__S4  ; Zero$latch                  ; clk        ; clk      ; None                        ; None                      ; 6.300 ns                ;
+; N/A   ; 106.38 MHz ( period = 9.400 ns )               ; add_current_state.add2_S2   ; C[1]$latch                  ; clk        ; clk      ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 108.70 MHz ( period = 9.200 ns )               ; current_state.do_and        ; C[2]$latch                  ; clk        ; clk      ; None                        ; None                      ; 5.100 ns                ;
+; N/A   ; 111.11 MHz ( period = 9.000 ns )               ; current_state.do_x_or       ; C[3]$latch                  ; clk        ; clk      ; None                        ; None                      ; 5.300 ns                ;
+; N/A   ; 111.11 MHz ( period = 9.000 ns )               ; temp2[1]                    ; Zero$latch                  ; clk        ; clk      ; None                        ; None                      ; 7.400 ns                ;
+; N/A   ; 113.64 MHz ( period = 8.800 ns )               ; current_state.do_and        ; C[3]$latch                  ; clk        ; clk      ; None                        ; None                      ; 5.200 ns                ;
+; N/A   ; 114.94 MHz ( period = 8.700 ns )               ; temp[1]                     ; Zero$latch                  ; clk        ; clk      ; None                        ; None                      ; 7.000 ns                ;
+; N/A   ; 116.28 MHz ( period = 8.600 ns )               ; current_state.do_add        ; C[3]$latch                  ; clk        ; clk      ; None                        ; None                      ; 5.100 ns                ;
+; N/A   ; 126.58 MHz ( period = 7.900 ns )               ; tmp3[1]                     ; C[3]$latch                  ; clk        ; clk      ; None                        ; None                      ; 5.200 ns                ;
+; N/A   ; 128.21 MHz ( period = 7.800 ns )               ; add_current_state.add2_S4   ; Zero$latch                  ; clk        ; clk      ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 135.14 MHz ( period = 7.400 ns )               ; and_current_state.and2__S4  ; C[3]$latch                  ; clk        ; clk      ; None                        ; None                      ; 4.500 ns                ;
+; N/A   ; 138.89 MHz ( period = 7.200 ns )               ; and_current_state.and2__S2  ; C[1]$latch                  ; clk        ; clk      ; None                        ; None                      ; 4.300 ns                ;
+; N/A   ; 142.86 MHz ( period = 7.000 ns )               ; current_state.do_and        ; C[1]$latch                  ; clk        ; clk      ; None                        ; None                      ; 4.200 ns                ;
+; N/A   ; 144.93 MHz ( period = 6.900 ns )               ; sub_current_state.sub2_S4   ; Carry$latch                 ; clk        ; clk      ; None                        ; None                      ; 7.600 ns                ;
+; N/A   ; 144.93 MHz ( period = 6.900 ns )               ; tmp3[1]                     ; Zero$latch                  ; clk        ; clk      ; None                        ; None                      ; 4.900 ns                ;
+; N/A   ; 147.06 MHz ( period = 6.800 ns )               ; temp3[1]                    ; Zero$latch                  ; clk        ; clk      ; None                        ; None                      ; 5.300 ns                ;
+; N/A   ; 151.52 MHz ( period = 6.600 ns )               ; tmp2[1]                     ; C[2]$latch                  ; clk        ; clk      ; None                        ; None                      ; 3.800 ns                ;
+; N/A   ; 151.52 MHz ( period = 6.600 ns )               ; sub_current_state.sub2_S2   ; Carry$latch                 ; clk        ; clk      ; None                        ; None                      ; 7.300 ns                ;
+; N/A   ; 153.85 MHz ( period = 6.500 ns )               ; temp2[1]                    ; C[2]$latch                  ; clk        ; clk      ; None                        ; None                      ; 3.900 ns                ;
+; N/A   ; 153.85 MHz ( period = 6.500 ns )               ; temp3[1]                    ; C[3]$latch                  ; clk        ; clk      ; None                        ; None                      ; 4.300 ns                ;
+; N/A   ; 153.85 MHz ( period = 6.500 ns )               ; add_current_state.add2_S2   ; Carry$latch                 ; clk        ; clk      ; None                        ; None                      ; 7.200 ns                ;
+; N/A   ; 153.85 MHz ( period = 6.500 ns )               ; and_current_state.and2__S0  ; Carry$latch                 ; clk        ; clk      ; None                        ; None                      ; 7.200 ns                ;
+; N/A   ; 156.25 MHz ( period = 6.400 ns )               ; temp[1]                     ; C[1]$latch                  ; clk        ; clk      ; None                        ; None                      ; 3.900 ns                ;
+; N/A   ; 158.73 MHz ( period = 6.300 ns )               ; tmp[1]                      ; C[1]$latch                  ; clk        ; clk      ; None                        ; None                      ; 3.500 ns                ;
+; N/A   ; 166.67 MHz ( period = 6.000 ns )               ; add_current_state.add2_S4   ; Carry$latch                 ; clk        ; clk      ; None                        ; None                      ; 6.700 ns                ;
+; N/A   ; 166.67 MHz ( period = 6.000 ns )               ; current_state.do_add        ; Zero$latch                  ; clk        ; clk      ; None                        ; None                      ; 4.500 ns                ;
+; N/A   ; 175.44 MHz ( period = 5.700 ns )               ; current_state.do_and        ; Carry$latch                 ; clk        ; clk      ; None                        ; None                      ; 6.400 ns                ;
+; N/A   ; 185.19 MHz ( period = 5.400 ns )               ; and_current_state.and2__S1  ; C[0]$latch                  ; clk        ; clk      ; None                        ; None                      ; 3.300 ns                ;
+; N/A   ; 185.19 MHz ( period = 5.400 ns )               ; add_current_state.add2_S3   ; Carry$latch                 ; clk        ; clk      ; None                        ; None                      ; 6.100 ns                ;
+; N/A   ; 185.19 MHz ( period = 5.400 ns )               ; x_or_current_state.x_or2_S4 ; Zero$latch                  ; clk        ; clk      ; None                        ; None                      ; 4.200 ns                ;
+; N/A   ; 188.68 MHz ( period = 5.300 ns )               ; tmp[1]                      ; tmp2[1]                     ; clk        ; clk      ; None                        ; None                      ; 2.500 ns                ;
+; N/A   ; 188.68 MHz ( period = 5.300 ns )               ; sub_current_state.sub2_S3   ; Carry$latch                 ; clk        ; clk      ; None                        ; None                      ; 6.000 ns                ;
+; N/A   ; 204.08 MHz ( period = 4.900 ns )               ; temp[1]                     ; temp2[1]                    ; clk        ; clk      ; None                        ; None                      ; 2.300 ns                ;
+; N/A   ; 208.33 MHz ( period = 4.800 ns )               ; temp2[1]                    ; temp3[1]                    ; clk        ; clk      ; None                        ; None                      ; 2.300 ns                ;
+; N/A   ; 217.39 MHz ( period = 4.600 ns )               ; tmp2[1]                     ; tmp3[1]                     ; clk        ; clk      ; None                        ; None                      ; 2.500 ns                ;
+; N/A   ; 217.39 MHz ( period = 4.600 ns )               ; current_state.do_x_or       ; Zero$latch                  ; clk        ; clk      ; None                        ; None                      ; 3.800 ns                ;
+; N/A   ; 250.00 MHz ( period = 4.000 ns )               ; sub_current_state.sub2_S1   ; Carry$latch                 ; clk        ; clk      ; None                        ; None                      ; 4.700 ns                ;
+; N/A   ; 263.16 MHz ( period = 3.800 ns )               ; current_state.do_and        ; C[0]$latch                  ; clk        ; clk      ; None                        ; None                      ; 2.500 ns                ;
+; N/A   ; 277.78 MHz ( period = 3.600 ns )               ; add_current_state.add2_S1   ; Carry$latch                 ; clk        ; clk      ; None                        ; None                      ; 4.300 ns                ;
+; N/A   ; 344.83 MHz ( period = 2.900 ns )               ; current_state.do_add        ; Carry$latch                 ; clk        ; clk      ; None                        ; None                      ; 3.600 ns                ;
+; N/A   ; 357.14 MHz ( period = 2.800 ns )               ; add_current_state.add2_S0   ; Carry$latch                 ; clk        ; clk      ; None                        ; None                      ; 3.500 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; and_next_state.and2__S2     ; and_current_state.and2__S2  ; clk        ; clk      ; None                        ; None                      ; 1.800 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; and_next_state.and2__S4     ; and_current_state.and2__S4  ; clk        ; clk      ; None                        ; None                      ; 1.600 ns                ;
+; N/A   ; 476.19 MHz ( period = 2.100 ns )               ; current_state.do_x_or       ; Carry$latch                 ; clk        ; clk      ; None                        ; None                      ; 2.800 ns                ;
+; N/A   ; 526.32 MHz ( period = 1.900 ns )               ; x_or_current_state.x_or2_S0 ; Carry$latch                 ; clk        ; clk      ; None                        ; None                      ; 2.600 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; add_next_state.add2_S1      ; add_current_state.add2_S1   ; clk        ; clk      ; None                        ; None                      ; 1.100 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; x_or_next_state.x_or2_S1    ; x_or_current_state.x_or2_S1 ; clk        ; clk      ; None                        ; None                      ; 1.100 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; sub_next_state.sub2_S2      ; sub_current_state.sub2_S2   ; clk        ; clk      ; None                        ; None                      ; 1.100 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; add_next_state.add2_S2      ; add_current_state.add2_S2   ; clk        ; clk      ; None                        ; None                      ; 1.100 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; x_or_next_state.x_or2_S3    ; x_or_current_state.x_or2_S3 ; clk        ; clk      ; None                        ; None                      ; 1.100 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; sub_next_state.sub2_S3      ; sub_current_state.sub2_S3   ; clk        ; clk      ; None                        ; None                      ; 0.900 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; current_state.do_x_or       ; current_state.do_x_or       ; clk        ; clk      ; None                        ; None                      ; 0.800 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; and_current_state.and2__S1  ; and_current_state.and2__S1  ; clk        ; clk      ; None                        ; None                      ; 0.700 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; and_next_state.and2__S0     ; and_next_state.and2__S1     ; clk        ; clk      ; None                        ; None                      ; 0.700 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; sub_current_state.sub2_S1   ; sub_current_state.sub2_S1   ; clk        ; clk      ; None                        ; None                      ; 0.700 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; sub_next_state.sub2_S0      ; sub_next_state.sub2_S1      ; clk        ; clk      ; None                        ; None                      ; 0.700 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; current_state.do_sub        ; current_state.do_sub        ; clk        ; clk      ; None                        ; None                      ; 0.700 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; add_current_state.add2_S1   ; add_current_state.add2_S1   ; clk        ; clk      ; None                        ; None                      ; 0.700 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; add_next_state.add2_S0      ; add_next_state.add2_S1      ; clk        ; clk      ; None                        ; None                      ; 0.700 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; x_or_current_state.x_or2_S1 ; x_or_current_state.x_or2_S1 ; clk        ; clk      ; None                        ; None                      ; 0.700 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; x_or_next_state.x_or2_S0    ; x_or_next_state.x_or2_S1    ; clk        ; clk      ; None                        ; None                      ; 0.700 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; sub_current_state.sub2_S2   ; sub_current_state.sub2_S2   ; clk        ; clk      ; None                        ; None                      ; 0.700 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; sub_next_state.sub2_S2      ; sub_next_state.sub2_S2      ; clk        ; clk      ; None                        ; None                      ; 0.700 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; and_current_state.and2__S2  ; and_current_state.and2__S2  ; clk        ; clk      ; None                        ; None                      ; 0.700 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; and_next_state.and2__S2     ; and_next_state.and2__S2     ; clk        ; clk      ; None                        ; None                      ; 0.700 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; x_or_current_state.x_or2_S2 ; x_or_current_state.x_or2_S2 ; clk        ; clk      ; None                        ; None                      ; 0.700 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; x_or_next_state.x_or2_S2    ; x_or_next_state.x_or2_S2    ; clk        ; clk      ; None                        ; None                      ; 0.700 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; add_current_state.add2_S2   ; add_current_state.add2_S2   ; clk        ; clk      ; None                        ; None                      ; 0.700 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; add_next_state.add2_S2      ; add_next_state.add2_S2      ; clk        ; clk      ; None                        ; None                      ; 0.700 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; sub_current_state.sub2_S3   ; sub_current_state.sub2_S3   ; clk        ; clk      ; None                        ; None                      ; 0.700 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; sub_next_state.sub2_S3      ; sub_next_state.sub2_S3      ; clk        ; clk      ; None                        ; None                      ; 0.700 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; and_current_state.and2__S3  ; and_current_state.and2__S3  ; clk        ; clk      ; None                        ; None                      ; 0.700 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; and_next_state.and2__S3     ; and_next_state.and2__S3     ; clk        ; clk      ; None                        ; None                      ; 0.700 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; x_or_current_state.x_or2_S3 ; x_or_current_state.x_or2_S3 ; clk        ; clk      ; None                        ; None                      ; 0.700 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; x_or_next_state.x_or2_S3    ; x_or_next_state.x_or2_S3    ; clk        ; clk      ; None                        ; None                      ; 0.700 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; add_current_state.add2_S3   ; add_current_state.add2_S3   ; clk        ; clk      ; None                        ; None                      ; 0.700 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; add_next_state.add2_S3      ; add_next_state.add2_S3      ; clk        ; clk      ; None                        ; None                      ; 0.700 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; and_current_state.and2__S4  ; and_current_state.and2__S4  ; clk        ; clk      ; None                        ; None                      ; 0.700 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; and_next_state.and2__S4     ; and_next_state.and2__S4     ; clk        ; clk      ; None                        ; None                      ; 0.700 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; sub_current_state.sub2_S4   ; sub_current_state.sub2_S4   ; clk        ; clk      ; None                        ; None                      ; 0.700 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; sub_next_state.sub2_S4      ; sub_next_state.sub2_S4      ; clk        ; clk      ; None                        ; None                      ; 0.700 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; x_or_current_state.x_or2_S4 ; x_or_current_state.x_or2_S4 ; clk        ; clk      ; None                        ; None                      ; 0.700 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; x_or_next_state.x_or2_S4    ; x_or_next_state.x_or2_S4    ; clk        ; clk      ; None                        ; None                      ; 0.700 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; add_current_state.add2_S4   ; add_current_state.add2_S4   ; clk        ; clk      ; None                        ; None                      ; 0.700 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; add_next_state.add2_S4      ; add_next_state.add2_S4      ; clk        ; clk      ; None                        ; None                      ; 0.700 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; add_current_state.add2_S0   ; add_current_state.add2_S0   ; clk        ; clk      ; None                        ; None                      ; 0.700 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; add_next_state.add2_S0      ; add_current_state.add2_S0   ; clk        ; clk      ; None                        ; None                      ; 0.700 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; add_next_state.add2_S0      ; add_next_state.add2_S0      ; clk        ; clk      ; None                        ; None                      ; 0.700 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; x_or_current_state.x_or2_S0 ; x_or_current_state.x_or2_S0 ; clk        ; clk      ; None                        ; None                      ; 0.700 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; x_or_next_state.x_or2_S0    ; x_or_current_state.x_or2_S0 ; clk        ; clk      ; None                        ; None                      ; 0.700 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; x_or_next_state.x_or2_S0    ; x_or_next_state.x_or2_S0    ; clk        ; clk      ; None                        ; None                      ; 0.700 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; and_next_state.and2__S0     ; and_next_state.and2__S0     ; clk        ; clk      ; None                        ; None                      ; 0.700 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; sub_next_state.sub2_S0      ; sub_next_state.sub2_S0      ; clk        ; clk      ; None                        ; None                      ; 0.700 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; and_next_state.and2__S0     ; and_current_state.and2__S0  ; clk        ; clk      ; None                        ; None                      ; 0.700 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; and_current_state.and2__S0  ; and_current_state.and2__S0  ; clk        ; clk      ; None                        ; None                      ; 0.700 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; sub_next_state.sub2_S0      ; sub_current_state.sub2_S0   ; clk        ; clk      ; None                        ; None                      ; 0.700 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; sub_current_state.sub2_S0   ; sub_current_state.sub2_S0   ; clk        ; clk      ; None                        ; None                      ; 0.700 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; and_next_state.and2__S1     ; and_current_state.and2__S1  ; clk        ; clk      ; None                        ; None                      ; 0.500 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; and_next_state.and2__S1     ; and_next_state.and2__S1     ; clk        ; clk      ; None                        ; None                      ; 0.500 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; current_state.do_and        ; current_state.do_and        ; clk        ; clk      ; None                        ; None                      ; 0.500 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; sub_next_state.sub2_S1      ; sub_current_state.sub2_S1   ; clk        ; clk      ; None                        ; None                      ; 0.500 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; sub_next_state.sub2_S1      ; sub_next_state.sub2_S1      ; clk        ; clk      ; None                        ; None                      ; 0.500 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; add_next_state.add2_S1      ; add_next_state.add2_S1      ; clk        ; clk      ; None                        ; None                      ; 0.500 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; current_state.do_add        ; current_state.do_add        ; clk        ; clk      ; None                        ; None                      ; 0.500 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; x_or_next_state.x_or2_S1    ; x_or_next_state.x_or2_S1    ; clk        ; clk      ; None                        ; None                      ; 0.500 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; sub_next_state.sub2_S1      ; sub_next_state.sub2_S2      ; clk        ; clk      ; None                        ; None                      ; 0.500 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; and_next_state.and2__S1     ; and_next_state.and2__S2     ; clk        ; clk      ; None                        ; None                      ; 0.500 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; x_or_next_state.x_or2_S2    ; x_or_current_state.x_or2_S2 ; clk        ; clk      ; None                        ; None                      ; 0.500 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; x_or_next_state.x_or2_S1    ; x_or_next_state.x_or2_S2    ; clk        ; clk      ; None                        ; None                      ; 0.500 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; add_next_state.add2_S1      ; add_next_state.add2_S2      ; clk        ; clk      ; None                        ; None                      ; 0.500 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; sub_next_state.sub2_S2      ; sub_next_state.sub2_S3      ; clk        ; clk      ; None                        ; None                      ; 0.500 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; and_next_state.and2__S3     ; and_current_state.and2__S3  ; clk        ; clk      ; None                        ; None                      ; 0.500 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; and_next_state.and2__S2     ; and_next_state.and2__S3     ; clk        ; clk      ; None                        ; None                      ; 0.500 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; x_or_next_state.x_or2_S2    ; x_or_next_state.x_or2_S3    ; clk        ; clk      ; None                        ; None                      ; 0.500 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; add_next_state.add2_S3      ; add_current_state.add2_S3   ; clk        ; clk      ; None                        ; None                      ; 0.500 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; add_next_state.add2_S2      ; add_next_state.add2_S3      ; clk        ; clk      ; None                        ; None                      ; 0.500 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; and_next_state.and2__S3     ; and_next_state.and2__S4     ; clk        ; clk      ; None                        ; None                      ; 0.500 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; sub_next_state.sub2_S4      ; sub_current_state.sub2_S4   ; clk        ; clk      ; None                        ; None                      ; 0.500 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; sub_next_state.sub2_S3      ; sub_next_state.sub2_S4      ; clk        ; clk      ; None                        ; None                      ; 0.500 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; x_or_next_state.x_or2_S4    ; x_or_current_state.x_or2_S4 ; clk        ; clk      ; None                        ; None                      ; 0.500 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; x_or_next_state.x_or2_S3    ; x_or_next_state.x_or2_S4    ; clk        ; clk      ; None                        ; None                      ; 0.500 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; add_next_state.add2_S4      ; add_current_state.add2_S4   ; clk        ; clk      ; None                        ; None                      ; 0.500 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; add_next_state.add2_S3      ; add_next_state.add2_S4      ; clk        ; clk      ; None                        ; None                      ; 0.500 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; add_next_state.add2_S4      ; add_next_state.add2_S0      ; clk        ; clk      ; None                        ; None                      ; 0.500 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; x_or_next_state.x_or2_S4    ; x_or_next_state.x_or2_S0    ; clk        ; clk      ; None                        ; None                      ; 0.500 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; and_next_state.and2__S4     ; and_next_state.and2__S0     ; clk        ; clk      ; None                        ; None                      ; 0.500 ns                ;
+; N/A   ; Restricted to 250.00 MHz ( period = 4.000 ns ) ; sub_next_state.sub2_S4      ; sub_next_state.sub2_S0      ; clk        ; clk      ; None                        ; None                      ; 0.500 ns                ;
++-------+------------------------------------------------+-----------------------------+-----------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Hold: 'clk'                                                                                                                                                                                 ;
++------------------------------------------+-----------------------------+-------------+------------+----------+----------------------------+----------------------------+--------------------------+
+; Minimum Slack                            ; From                        ; To          ; From Clock ; To Clock ; Required Hold Relationship ; Required Shortest P2P Time ; Actual Shortest P2P Time ;
++------------------------------------------+-----------------------------+-------------+------------+----------+----------------------------+----------------------------+--------------------------+
+; Not operational: Clock Skew > Data Delay ; current_state.do_and        ; C[0]$latch  ; clk        ; clk      ; None                       ; None                       ; 2.500 ns                 ;
+; Not operational: Clock Skew > Data Delay ; current_state.do_x_or       ; C[1]$latch  ; clk        ; clk      ; None                       ; None                       ; 3.600 ns                 ;
+; Not operational: Clock Skew > Data Delay ; current_state.do_x_or       ; Zero$latch  ; clk        ; clk      ; None                       ; None                       ; 3.800 ns                 ;
+; Not operational: Clock Skew > Data Delay ; current_state.do_and        ; C[1]$latch  ; clk        ; clk      ; None                       ; None                       ; 3.800 ns                 ;
+; Not operational: Clock Skew > Data Delay ; x_or_current_state.x_or2_S2 ; C[1]$latch  ; clk        ; clk      ; None                       ; None                       ; 3.800 ns                 ;
+; Not operational: Clock Skew > Data Delay ; and_current_state.and2__S1  ; C[0]$latch  ; clk        ; clk      ; None                       ; None                       ; 3.300 ns                 ;
+; Not operational: Clock Skew > Data Delay ; x_or_current_state.x_or2_S0 ; Carry$latch ; clk        ; clk      ; None                       ; None                       ; 2.600 ns                 ;
+; Not operational: Clock Skew > Data Delay ; and_current_state.and2__S2  ; C[1]$latch  ; clk        ; clk      ; None                       ; None                       ; 4.000 ns                 ;
+; Not operational: Clock Skew > Data Delay ; x_or_current_state.x_or2_S4 ; Zero$latch  ; clk        ; clk      ; None                       ; None                       ; 4.200 ns                 ;
+; Not operational: Clock Skew > Data Delay ; x_or_current_state.x_or2_S3 ; C[2]$latch  ; clk        ; clk      ; None                       ; None                       ; 3.600 ns                 ;
+; Not operational: Clock Skew > Data Delay ; current_state.do_x_or       ; Carry$latch ; clk        ; clk      ; None                       ; None                       ; 2.800 ns                 ;
+; Not operational: Clock Skew > Data Delay ; current_state.do_and        ; C[2]$latch  ; clk        ; clk      ; None                       ; None                       ; 3.700 ns                 ;
+; Not operational: Clock Skew > Data Delay ; current_state.do_add        ; Zero$latch  ; clk        ; clk      ; None                       ; None                       ; 4.500 ns                 ;
+; Not operational: Clock Skew > Data Delay ; add_current_state.add2_S2   ; C[1]$latch  ; clk        ; clk      ; None                       ; None                       ; 4.400 ns                 ;
+; Not operational: Clock Skew > Data Delay ; current_state.do_and        ; Zero$latch  ; clk        ; clk      ; None                       ; None                       ; 4.600 ns                 ;
+; Not operational: Clock Skew > Data Delay ; and_current_state.and2__S2  ; Zero$latch  ; clk        ; clk      ; None                       ; None                       ; 4.700 ns                 ;
+; Not operational: Clock Skew > Data Delay ; current_state.do_add        ; C[2]$latch  ; clk        ; clk      ; None                       ; None                       ; 4.200 ns                 ;
+; Not operational: Clock Skew > Data Delay ; add_current_state.add2_S0   ; Carry$latch ; clk        ; clk      ; None                       ; None                       ; 3.500 ns                 ;
+; Not operational: Clock Skew > Data Delay ; current_state.do_x_or       ; C[2]$latch  ; clk        ; clk      ; None                       ; None                       ; 4.400 ns                 ;
+; Not operational: Clock Skew > Data Delay ; add_current_state.add2_S3   ; C[2]$latch  ; clk        ; clk      ; None                       ; None                       ; 4.400 ns                 ;
+; Not operational: Clock Skew > Data Delay ; current_state.do_add        ; Carry$latch ; clk        ; clk      ; None                       ; None                       ; 3.600 ns                 ;
+; Not operational: Clock Skew > Data Delay ; current_state.do_add        ; C[1]$latch  ; clk        ; clk      ; None                       ; None                       ; 5.000 ns                 ;
+; Not operational: Clock Skew > Data Delay ; and_current_state.and2__S4  ; C[3]$latch  ; clk        ; clk      ; None                       ; None                       ; 4.500 ns                 ;
+; Not operational: Clock Skew > Data Delay ; current_state.do_x_or       ; C[3]$latch  ; clk        ; clk      ; None                       ; None                       ; 4.700 ns                 ;
+; Not operational: Clock Skew > Data Delay ; add_current_state.add2_S4   ; Zero$latch  ; clk        ; clk      ; None                       ; None                       ; 5.400 ns                 ;
++------------------------------------------+-----------------------------+-------------+------------+----------+----------------------------+----------------------------+--------------------------+
+
+
++----------------------------------------------------------------------------------------+
+; tsu                                                                                    ;
++-------+--------------+------------+-----------+-----------------------------+----------+
+; Slack ; Required tsu ; Actual tsu ; From      ; To                          ; To Clock ;
++-------+--------------+------------+-----------+-----------------------------+----------+
+; N/A   ; None         ; 8.900 ns   ; A[0]      ; Zero$latch                  ; clk      ;
+; N/A   ; None         ; 8.600 ns   ; B[3]      ; Carry$latch                 ; clk      ;
+; N/A   ; None         ; 7.900 ns   ; A[0]      ; Carry$latch                 ; clk      ;
+; N/A   ; None         ; 7.600 ns   ; B[0]      ; Zero$latch                  ; clk      ;
+; N/A   ; None         ; 7.000 ns   ; B[3]      ; Zero$latch                  ; clk      ;
+; N/A   ; None         ; 6.800 ns   ; opCode[0] ; and_current_state.and2__S1  ; clk      ;
+; N/A   ; None         ; 6.800 ns   ; opCode[0] ; and_next_state.and2__S1     ; clk      ;
+; N/A   ; None         ; 6.800 ns   ; opCode[0] ; and_next_state.and2__S2     ; clk      ;
+; N/A   ; None         ; 6.800 ns   ; opCode[0] ; and_current_state.and2__S3  ; clk      ;
+; N/A   ; None         ; 6.800 ns   ; opCode[0] ; and_next_state.and2__S3     ; clk      ;
+; N/A   ; None         ; 6.800 ns   ; opCode[0] ; and_next_state.and2__S4     ; clk      ;
+; N/A   ; None         ; 6.800 ns   ; opCode[0] ; and_next_state.and2__S0     ; clk      ;
+; N/A   ; None         ; 6.700 ns   ; A[1]      ; Carry$latch                 ; clk      ;
+; N/A   ; None         ; 6.700 ns   ; B[0]      ; Carry$latch                 ; clk      ;
+; N/A   ; None         ; 6.600 ns   ; B[1]      ; Carry$latch                 ; clk      ;
+; N/A   ; None         ; 6.600 ns   ; opCode[1] ; and_current_state.and2__S1  ; clk      ;
+; N/A   ; None         ; 6.600 ns   ; opCode[1] ; and_next_state.and2__S1     ; clk      ;
+; N/A   ; None         ; 6.600 ns   ; opCode[1] ; and_next_state.and2__S2     ; clk      ;
+; N/A   ; None         ; 6.600 ns   ; opCode[1] ; and_current_state.and2__S3  ; clk      ;
+; N/A   ; None         ; 6.600 ns   ; opCode[1] ; and_next_state.and2__S3     ; clk      ;
+; N/A   ; None         ; 6.600 ns   ; opCode[1] ; and_next_state.and2__S4     ; clk      ;
+; N/A   ; None         ; 6.600 ns   ; opCode[1] ; and_next_state.and2__S0     ; clk      ;
+; N/A   ; None         ; 6.600 ns   ; opCode[0] ; and_current_state.and2__S0  ; clk      ;
+; N/A   ; None         ; 6.500 ns   ; B[3]      ; C[3]$latch                  ; clk      ;
+; N/A   ; None         ; 6.400 ns   ; A[3]      ; Carry$latch                 ; clk      ;
+; N/A   ; None         ; 6.400 ns   ; opCode[1] ; and_current_state.and2__S0  ; clk      ;
+; N/A   ; None         ; 6.100 ns   ; opCode[2] ; and_current_state.and2__S1  ; clk      ;
+; N/A   ; None         ; 6.100 ns   ; opCode[2] ; and_next_state.and2__S1     ; clk      ;
+; N/A   ; None         ; 6.100 ns   ; opCode[2] ; and_next_state.and2__S2     ; clk      ;
+; N/A   ; None         ; 6.100 ns   ; opCode[2] ; and_current_state.and2__S3  ; clk      ;
+; N/A   ; None         ; 6.100 ns   ; opCode[2] ; and_next_state.and2__S3     ; clk      ;
+; N/A   ; None         ; 6.100 ns   ; opCode[2] ; and_next_state.and2__S4     ; clk      ;
+; N/A   ; None         ; 6.100 ns   ; opCode[2] ; and_next_state.and2__S0     ; clk      ;
+; N/A   ; None         ; 6.100 ns   ; opCode[0] ; and_current_state.and2__S4  ; clk      ;
+; N/A   ; None         ; 5.900 ns   ; opCode[2] ; and_current_state.and2__S0  ; clk      ;
+; N/A   ; None         ; 5.900 ns   ; opCode[1] ; sub_current_state.sub2_S1   ; clk      ;
+; N/A   ; None         ; 5.900 ns   ; opCode[1] ; sub_next_state.sub2_S1      ; clk      ;
+; N/A   ; None         ; 5.900 ns   ; opCode[1] ; sub_current_state.sub2_S2   ; clk      ;
+; N/A   ; None         ; 5.900 ns   ; opCode[1] ; sub_next_state.sub2_S2      ; clk      ;
+; N/A   ; None         ; 5.900 ns   ; opCode[1] ; sub_current_state.sub2_S3   ; clk      ;
+; N/A   ; None         ; 5.900 ns   ; opCode[1] ; sub_next_state.sub2_S3      ; clk      ;
+; N/A   ; None         ; 5.900 ns   ; opCode[1] ; and_current_state.and2__S4  ; clk      ;
+; N/A   ; None         ; 5.900 ns   ; opCode[1] ; sub_current_state.sub2_S4   ; clk      ;
+; N/A   ; None         ; 5.900 ns   ; opCode[1] ; sub_next_state.sub2_S4      ; clk      ;
+; N/A   ; None         ; 5.900 ns   ; opCode[1] ; sub_next_state.sub2_S0      ; clk      ;
+; N/A   ; None         ; 5.900 ns   ; opCode[0] ; sub_current_state.sub2_S1   ; clk      ;
+; N/A   ; None         ; 5.900 ns   ; opCode[0] ; sub_next_state.sub2_S1      ; clk      ;
+; N/A   ; None         ; 5.900 ns   ; opCode[0] ; add_current_state.add2_S1   ; clk      ;
+; N/A   ; None         ; 5.900 ns   ; opCode[0] ; sub_current_state.sub2_S2   ; clk      ;
+; N/A   ; None         ; 5.900 ns   ; opCode[0] ; sub_next_state.sub2_S2      ; clk      ;
+; N/A   ; None         ; 5.900 ns   ; opCode[0] ; add_current_state.add2_S2   ; clk      ;
+; N/A   ; None         ; 5.900 ns   ; opCode[0] ; sub_current_state.sub2_S3   ; clk      ;
+; N/A   ; None         ; 5.900 ns   ; opCode[0] ; sub_next_state.sub2_S3      ; clk      ;
+; N/A   ; None         ; 5.900 ns   ; opCode[0] ; sub_current_state.sub2_S4   ; clk      ;
+; N/A   ; None         ; 5.900 ns   ; opCode[0] ; sub_next_state.sub2_S4      ; clk      ;
+; N/A   ; None         ; 5.900 ns   ; opCode[0] ; sub_next_state.sub2_S0      ; clk      ;
+; N/A   ; None         ; 5.800 ns   ; B[2]      ; Zero$latch                  ; clk      ;
+; N/A   ; None         ; 5.800 ns   ; A[2]      ; Zero$latch                  ; clk      ;
+; N/A   ; None         ; 5.800 ns   ; opCode[1] ; x_or_next_state.x_or2_S1    ; clk      ;
+; N/A   ; None         ; 5.800 ns   ; opCode[1] ; x_or_current_state.x_or2_S2 ; clk      ;
+; N/A   ; None         ; 5.800 ns   ; opCode[1] ; x_or_next_state.x_or2_S2    ; clk      ;
+; N/A   ; None         ; 5.800 ns   ; opCode[1] ; x_or_next_state.x_or2_S3    ; clk      ;
+; N/A   ; None         ; 5.800 ns   ; opCode[1] ; x_or_current_state.x_or2_S4 ; clk      ;
+; N/A   ; None         ; 5.800 ns   ; opCode[1] ; x_or_next_state.x_or2_S4    ; clk      ;
+; N/A   ; None         ; 5.800 ns   ; opCode[1] ; x_or_next_state.x_or2_S0    ; clk      ;
+; N/A   ; None         ; 5.800 ns   ; opCode[0] ; add_next_state.add2_S1      ; clk      ;
+; N/A   ; None         ; 5.800 ns   ; opCode[0] ; add_next_state.add2_S2      ; clk      ;
+; N/A   ; None         ; 5.800 ns   ; opCode[0] ; add_current_state.add2_S3   ; clk      ;
+; N/A   ; None         ; 5.800 ns   ; opCode[0] ; add_next_state.add2_S3      ; clk      ;
+; N/A   ; None         ; 5.800 ns   ; opCode[0] ; add_current_state.add2_S4   ; clk      ;
+; N/A   ; None         ; 5.800 ns   ; opCode[0] ; add_next_state.add2_S4      ; clk      ;
+; N/A   ; None         ; 5.800 ns   ; opCode[0] ; add_next_state.add2_S0      ; clk      ;
+; N/A   ; None         ; 5.700 ns   ; opCode[1] ; add_current_state.add2_S1   ; clk      ;
+; N/A   ; None         ; 5.700 ns   ; opCode[1] ; x_or_current_state.x_or2_S1 ; clk      ;
+; N/A   ; None         ; 5.700 ns   ; opCode[1] ; add_current_state.add2_S2   ; clk      ;
+; N/A   ; None         ; 5.700 ns   ; opCode[1] ; x_or_current_state.x_or2_S3 ; clk      ;
+; N/A   ; None         ; 5.700 ns   ; opCode[1] ; sub_current_state.sub2_S0   ; clk      ;
+; N/A   ; None         ; 5.700 ns   ; opCode[0] ; sub_current_state.sub2_S0   ; clk      ;
+; N/A   ; None         ; 5.600 ns   ; opCode[1] ; add_next_state.add2_S1      ; clk      ;
+; N/A   ; None         ; 5.600 ns   ; opCode[1] ; add_next_state.add2_S2      ; clk      ;
+; N/A   ; None         ; 5.600 ns   ; opCode[1] ; add_current_state.add2_S3   ; clk      ;
+; N/A   ; None         ; 5.600 ns   ; opCode[1] ; add_next_state.add2_S3      ; clk      ;
+; N/A   ; None         ; 5.600 ns   ; opCode[1] ; add_current_state.add2_S4   ; clk      ;
+; N/A   ; None         ; 5.600 ns   ; opCode[1] ; add_next_state.add2_S4      ; clk      ;
+; N/A   ; None         ; 5.600 ns   ; opCode[1] ; add_next_state.add2_S0      ; clk      ;
+; N/A   ; None         ; 5.600 ns   ; opCode[1] ; x_or_current_state.x_or2_S0 ; clk      ;
+; N/A   ; None         ; 5.600 ns   ; opCode[0] ; x_or_next_state.x_or2_S1    ; clk      ;
+; N/A   ; None         ; 5.600 ns   ; opCode[0] ; x_or_current_state.x_or2_S2 ; clk      ;
+; N/A   ; None         ; 5.600 ns   ; opCode[0] ; x_or_next_state.x_or2_S2    ; clk      ;
+; N/A   ; None         ; 5.600 ns   ; opCode[0] ; x_or_next_state.x_or2_S3    ; clk      ;
+; N/A   ; None         ; 5.600 ns   ; opCode[0] ; x_or_current_state.x_or2_S4 ; clk      ;
+; N/A   ; None         ; 5.600 ns   ; opCode[0] ; x_or_next_state.x_or2_S4    ; clk      ;
+; N/A   ; None         ; 5.600 ns   ; opCode[0] ; add_current_state.add2_S0   ; clk      ;
+; N/A   ; None         ; 5.600 ns   ; opCode[0] ; x_or_next_state.x_or2_S0    ; clk      ;
+; N/A   ; None         ; 5.500 ns   ; A[1]      ; Zero$latch                  ; clk      ;
+; N/A   ; None         ; 5.500 ns   ; B[1]      ; Zero$latch                  ; clk      ;
+; N/A   ; None         ; 5.500 ns   ; opCode[0] ; x_or_current_state.x_or2_S1 ; clk      ;
+; N/A   ; None         ; 5.500 ns   ; opCode[0] ; x_or_current_state.x_or2_S3 ; clk      ;
+; N/A   ; None         ; 5.400 ns   ; opCode[2] ; add_current_state.add2_S1   ; clk      ;
+; N/A   ; None         ; 5.400 ns   ; opCode[2] ; add_current_state.add2_S2   ; clk      ;
+; N/A   ; None         ; 5.400 ns   ; opCode[2] ; and_current_state.and2__S4  ; clk      ;
+; N/A   ; None         ; 5.400 ns   ; opCode[1] ; add_current_state.add2_S0   ; clk      ;
+; N/A   ; None         ; 5.400 ns   ; opCode[0] ; x_or_current_state.x_or2_S0 ; clk      ;
+; N/A   ; None         ; 5.300 ns   ; A[2]      ; Carry$latch                 ; clk      ;
+; N/A   ; None         ; 5.300 ns   ; opCode[2] ; add_next_state.add2_S1      ; clk      ;
+; N/A   ; None         ; 5.300 ns   ; opCode[2] ; x_or_next_state.x_or2_S1    ; clk      ;
+; N/A   ; None         ; 5.300 ns   ; opCode[2] ; x_or_current_state.x_or2_S2 ; clk      ;
+; N/A   ; None         ; 5.300 ns   ; opCode[2] ; x_or_next_state.x_or2_S2    ; clk      ;
+; N/A   ; None         ; 5.300 ns   ; opCode[2] ; add_next_state.add2_S2      ; clk      ;
+; N/A   ; None         ; 5.300 ns   ; opCode[2] ; x_or_next_state.x_or2_S3    ; clk      ;
+; N/A   ; None         ; 5.300 ns   ; opCode[2] ; add_current_state.add2_S3   ; clk      ;
+; N/A   ; None         ; 5.300 ns   ; opCode[2] ; add_next_state.add2_S3      ; clk      ;
+; N/A   ; None         ; 5.300 ns   ; opCode[2] ; x_or_current_state.x_or2_S4 ; clk      ;
+; N/A   ; None         ; 5.300 ns   ; opCode[2] ; x_or_next_state.x_or2_S4    ; clk      ;
+; N/A   ; None         ; 5.300 ns   ; opCode[2] ; add_current_state.add2_S4   ; clk      ;
+; N/A   ; None         ; 5.300 ns   ; opCode[2] ; add_next_state.add2_S4      ; clk      ;
+; N/A   ; None         ; 5.300 ns   ; opCode[2] ; add_next_state.add2_S0      ; clk      ;
+; N/A   ; None         ; 5.300 ns   ; opCode[2] ; x_or_next_state.x_or2_S0    ; clk      ;
+; N/A   ; None         ; 5.300 ns   ; opCode[0] ; and_current_state.and2__S2  ; clk      ;
+; N/A   ; None         ; 5.200 ns   ; B[2]      ; Carry$latch                 ; clk      ;
+; N/A   ; None         ; 5.200 ns   ; opCode[2] ; x_or_current_state.x_or2_S1 ; clk      ;
+; N/A   ; None         ; 5.200 ns   ; opCode[2] ; x_or_current_state.x_or2_S3 ; clk      ;
+; N/A   ; None         ; 5.100 ns   ; opCode[2] ; add_current_state.add2_S0   ; clk      ;
+; N/A   ; None         ; 5.100 ns   ; opCode[2] ; x_or_current_state.x_or2_S0 ; clk      ;
+; N/A   ; None         ; 5.100 ns   ; opCode[1] ; and_current_state.and2__S2  ; clk      ;
+; N/A   ; None         ; 5.000 ns   ; opCode[2] ; sub_current_state.sub2_S1   ; clk      ;
+; N/A   ; None         ; 5.000 ns   ; opCode[2] ; sub_next_state.sub2_S1      ; clk      ;
+; N/A   ; None         ; 5.000 ns   ; opCode[2] ; sub_current_state.sub2_S2   ; clk      ;
+; N/A   ; None         ; 5.000 ns   ; opCode[2] ; sub_next_state.sub2_S2      ; clk      ;
+; N/A   ; None         ; 5.000 ns   ; opCode[2] ; sub_current_state.sub2_S3   ; clk      ;
+; N/A   ; None         ; 5.000 ns   ; opCode[2] ; sub_next_state.sub2_S3      ; clk      ;
+; N/A   ; None         ; 5.000 ns   ; opCode[2] ; sub_current_state.sub2_S4   ; clk      ;
+; N/A   ; None         ; 5.000 ns   ; opCode[2] ; sub_next_state.sub2_S4      ; clk      ;
+; N/A   ; None         ; 5.000 ns   ; opCode[2] ; sub_next_state.sub2_S0      ; clk      ;
+; N/A   ; None         ; 4.800 ns   ; A[0]      ; tmp[1]                      ; clk      ;
+; N/A   ; None         ; 4.800 ns   ; opCode[2] ; sub_current_state.sub2_S0   ; clk      ;
+; N/A   ; None         ; 4.600 ns   ; opCode[2] ; and_current_state.and2__S2  ; clk      ;
+; N/A   ; None         ; 4.500 ns   ; A[3]      ; Zero$latch                  ; clk      ;
+; N/A   ; None         ; 4.300 ns   ; A[0]      ; temp[1]                     ; clk      ;
+; N/A   ; None         ; 4.300 ns   ; opCode[0] ; current_state.do_sub        ; clk      ;
+; N/A   ; None         ; 4.200 ns   ; opCode[1] ; current_state.do_and        ; clk      ;
+; N/A   ; None         ; 4.200 ns   ; opCode[1] ; current_state.do_sub        ; clk      ;
+; N/A   ; None         ; 4.200 ns   ; opCode[0] ; current_state.do_and        ; clk      ;
+; N/A   ; None         ; 4.200 ns   ; opCode[0] ; current_state.do_add        ; clk      ;
+; N/A   ; None         ; 4.100 ns   ; opCode[1] ; current_state.do_add        ; clk      ;
+; N/A   ; None         ; 4.100 ns   ; opCode[1] ; current_state.do_x_or       ; clk      ;
+; N/A   ; None         ; 4.000 ns   ; A[3]      ; C[3]$latch                  ; clk      ;
+; N/A   ; None         ; 4.000 ns   ; A[0]      ; C[0]$latch                  ; clk      ;
+; N/A   ; None         ; 3.900 ns   ; opCode[0] ; current_state.do_x_or       ; clk      ;
+; N/A   ; None         ; 3.700 ns   ; A[2]      ; C[2]$latch                  ; clk      ;
+; N/A   ; None         ; 3.600 ns   ; B[0]      ; tmp[1]                      ; clk      ;
+; N/A   ; None         ; 3.600 ns   ; opCode[2] ; current_state.do_and        ; clk      ;
+; N/A   ; None         ; 3.600 ns   ; opCode[2] ; current_state.do_add        ; clk      ;
+; N/A   ; None         ; 3.600 ns   ; opCode[2] ; current_state.do_x_or       ; clk      ;
+; N/A   ; None         ; 3.500 ns   ; B[2]      ; C[2]$latch                  ; clk      ;
+; N/A   ; None         ; 3.300 ns   ; opCode[2] ; current_state.do_sub        ; clk      ;
+; N/A   ; None         ; 3.200 ns   ; A[1]      ; C[1]$latch                  ; clk      ;
+; N/A   ; None         ; 3.200 ns   ; B[1]      ; C[1]$latch                  ; clk      ;
+; N/A   ; None         ; 3.100 ns   ; B[0]      ; temp[1]                     ; clk      ;
+; N/A   ; None         ; 2.800 ns   ; B[0]      ; C[0]$latch                  ; clk      ;
+; N/A   ; None         ; 1.700 ns   ; A[1]      ; temp2[1]                    ; clk      ;
+; N/A   ; None         ; 1.700 ns   ; B[1]      ; tmp2[1]                     ; clk      ;
+; N/A   ; None         ; 1.700 ns   ; B[1]      ; temp2[1]                    ; clk      ;
+; N/A   ; None         ; 1.600 ns   ; B[2]      ; temp3[1]                    ; clk      ;
+; N/A   ; None         ; 1.600 ns   ; A[2]      ; temp3[1]                    ; clk      ;
+; N/A   ; None         ; 1.500 ns   ; A[1]      ; tmp2[1]                     ; clk      ;
+; N/A   ; None         ; 1.200 ns   ; B[2]      ; tmp3[1]                     ; clk      ;
+; N/A   ; None         ; 1.000 ns   ; A[2]      ; tmp3[1]                     ; clk      ;
++-------+--------------+------------+-----------+-----------------------------+----------+
+
+
++--------------------------------------------------------------------------------------+
+; tco                                                                                  ;
++-------+--------------+------------+-----------------------------+-------+------------+
+; Slack ; Required tco ; Actual tco ; From                        ; To    ; From Clock ;
++-------+--------------+------------+-----------------------------+-------+------------+
+; N/A   ; None         ; 15.100 ns  ; tmp3[1]                     ; Sign  ; clk        ;
+; N/A   ; None         ; 13.700 ns  ; temp3[1]                    ; Sign  ; clk        ;
+; N/A   ; None         ; 12.400 ns  ; add_current_state.add2_S4   ; Sign  ; clk        ;
+; N/A   ; None         ; 12.300 ns  ; C[3]$latch                  ; Sign  ; clk        ;
+; N/A   ; None         ; 12.100 ns  ; x_or_current_state.x_or2_S4 ; Sign  ; clk        ;
+; N/A   ; None         ; 11.700 ns  ; Zero$latch                  ; Zero  ; clk        ;
+; N/A   ; None         ; 11.700 ns  ; current_state.do_x_or       ; Sign  ; clk        ;
+; N/A   ; None         ; 11.700 ns  ; C[1]$latch                  ; C[1]  ; clk        ;
+; N/A   ; None         ; 11.600 ns  ; current_state.do_and        ; Sign  ; clk        ;
+; N/A   ; None         ; 11.500 ns  ; current_state.do_add        ; Sign  ; clk        ;
+; N/A   ; None         ; 11.500 ns  ; C[3]$latch                  ; C[3]  ; clk        ;
+; N/A   ; None         ; 11.000 ns  ; C[2]$latch                  ; C[2]  ; clk        ;
+; N/A   ; None         ; 11.000 ns  ; C[0]$latch                  ; C[0]  ; clk        ;
+; N/A   ; None         ; 10.900 ns  ; and_current_state.and2__S4  ; Sign  ; clk        ;
+; N/A   ; None         ; 10.000 ns  ; Carry$latch                 ; Carry ; clk        ;
+; N/A   ; None         ; 9.500 ns   ; current_state.do_sub        ; Sign  ; clk        ;
+; N/A   ; None         ; 9.300 ns   ; sub_current_state.sub2_S4   ; Sign  ; clk        ;
++-------+--------------+------------+-----------------------------+-------+------------+
+
+
++-----------------------------------------------------------+
+; tpd                                                       ;
++-------+-------------------+-----------------+------+------+
+; Slack ; Required P2P Time ; Actual P2P Time ; From ; To   ;
++-------+-------------------+-----------------+------+------+
+; N/A   ; None              ; 13.700 ns       ; B[3] ; Sign ;
+; N/A   ; None              ; 11.200 ns       ; A[3] ; Sign ;
++-------+-------------------+-----------------+------+------+
+
+
++----------------------------------------------------------------------------------------------+
+; th                                                                                           ;
++---------------+-------------+-----------+-----------+-----------------------------+----------+
+; Minimum Slack ; Required th ; Actual th ; From      ; To                          ; To Clock ;
++---------------+-------------+-----------+-----------+-----------------------------+----------+
+; N/A           ; None        ; 2.300 ns  ; A[1]      ; C[1]$latch                  ; clk      ;
+; N/A           ; None        ; 2.300 ns  ; B[1]      ; C[1]$latch                  ; clk      ;
+; N/A           ; None        ; 2.200 ns  ; A[3]      ; Zero$latch                  ; clk      ;
+; N/A           ; None        ; 1.600 ns  ; A[2]      ; C[2]$latch                  ; clk      ;
+; N/A           ; None        ; 1.400 ns  ; A[1]      ; Zero$latch                  ; clk      ;
+; N/A           ; None        ; 1.400 ns  ; B[2]      ; C[2]$latch                  ; clk      ;
+; N/A           ; None        ; 1.300 ns  ; A[2]      ; tmp3[1]                     ; clk      ;
+; N/A           ; None        ; 1.300 ns  ; B[0]      ; C[0]$latch                  ; clk      ;
+; N/A           ; None        ; 1.200 ns  ; B[1]      ; Zero$latch                  ; clk      ;
+; N/A           ; None        ; 1.100 ns  ; A[1]      ; tmp2[1]                     ; clk      ;
+; N/A           ; None        ; 1.100 ns  ; B[2]      ; tmp3[1]                     ; clk      ;
+; N/A           ; None        ; 0.900 ns  ; B[1]      ; tmp2[1]                     ; clk      ;
+; N/A           ; None        ; 0.900 ns  ; B[2]      ; Zero$latch                  ; clk      ;
+; N/A           ; None        ; 0.800 ns  ; A[1]      ; temp2[1]                    ; clk      ;
+; N/A           ; None        ; 0.800 ns  ; B[1]      ; temp2[1]                    ; clk      ;
+; N/A           ; None        ; 0.800 ns  ; B[2]      ; temp3[1]                    ; clk      ;
+; N/A           ; None        ; 0.800 ns  ; A[2]      ; temp3[1]                    ; clk      ;
+; N/A           ; None        ; 0.700 ns  ; A[3]      ; C[3]$latch                  ; clk      ;
+; N/A           ; None        ; 0.700 ns  ; A[2]      ; Zero$latch                  ; clk      ;
+; N/A           ; None        ; 0.100 ns  ; A[0]      ; C[0]$latch                  ; clk      ;
+; N/A           ; None        ; -0.300 ns ; B[3]      ; Zero$latch                  ; clk      ;
+; N/A           ; None        ; -0.600 ns ; B[0]      ; tmp[1]                      ; clk      ;
+; N/A           ; None        ; -0.800 ns ; B[0]      ; temp[1]                     ; clk      ;
+; N/A           ; None        ; -1.600 ns ; B[2]      ; Carry$latch                 ; clk      ;
+; N/A           ; None        ; -1.600 ns ; B[0]      ; Zero$latch                  ; clk      ;
+; N/A           ; None        ; -1.700 ns ; A[2]      ; Carry$latch                 ; clk      ;
+; N/A           ; None        ; -1.800 ns ; B[3]      ; C[3]$latch                  ; clk      ;
+; N/A           ; None        ; -1.800 ns ; A[0]      ; tmp[1]                      ; clk      ;
+; N/A           ; None        ; -1.900 ns ; A[3]      ; Carry$latch                 ; clk      ;
+; N/A           ; None        ; -2.000 ns ; A[0]      ; temp[1]                     ; clk      ;
+; N/A           ; None        ; -2.200 ns ; opCode[2] ; current_state.do_sub        ; clk      ;
+; N/A           ; None        ; -2.300 ns ; B[1]      ; Carry$latch                 ; clk      ;
+; N/A           ; None        ; -2.500 ns ; A[1]      ; Carry$latch                 ; clk      ;
+; N/A           ; None        ; -2.500 ns ; opCode[2] ; current_state.do_and        ; clk      ;
+; N/A           ; None        ; -2.500 ns ; opCode[2] ; current_state.do_add        ; clk      ;
+; N/A           ; None        ; -2.500 ns ; opCode[2] ; current_state.do_x_or       ; clk      ;
+; N/A           ; None        ; -2.800 ns ; A[0]      ; Zero$latch                  ; clk      ;
+; N/A           ; None        ; -2.800 ns ; opCode[0] ; current_state.do_x_or       ; clk      ;
+; N/A           ; None        ; -3.000 ns ; B[0]      ; Carry$latch                 ; clk      ;
+; N/A           ; None        ; -3.000 ns ; opCode[1] ; current_state.do_add        ; clk      ;
+; N/A           ; None        ; -3.000 ns ; opCode[1] ; current_state.do_x_or       ; clk      ;
+; N/A           ; None        ; -3.100 ns ; opCode[1] ; current_state.do_and        ; clk      ;
+; N/A           ; None        ; -3.100 ns ; opCode[1] ; current_state.do_sub        ; clk      ;
+; N/A           ; None        ; -3.100 ns ; opCode[0] ; current_state.do_and        ; clk      ;
+; N/A           ; None        ; -3.100 ns ; opCode[0] ; current_state.do_add        ; clk      ;
+; N/A           ; None        ; -3.200 ns ; opCode[0] ; current_state.do_sub        ; clk      ;
+; N/A           ; None        ; -3.500 ns ; opCode[2] ; and_current_state.and2__S2  ; clk      ;
+; N/A           ; None        ; -3.700 ns ; opCode[2] ; sub_current_state.sub2_S0   ; clk      ;
+; N/A           ; None        ; -3.900 ns ; opCode[2] ; sub_current_state.sub2_S1   ; clk      ;
+; N/A           ; None        ; -3.900 ns ; opCode[2] ; sub_next_state.sub2_S1      ; clk      ;
+; N/A           ; None        ; -3.900 ns ; opCode[2] ; sub_current_state.sub2_S2   ; clk      ;
+; N/A           ; None        ; -3.900 ns ; opCode[2] ; sub_next_state.sub2_S2      ; clk      ;
+; N/A           ; None        ; -3.900 ns ; opCode[2] ; sub_current_state.sub2_S3   ; clk      ;
+; N/A           ; None        ; -3.900 ns ; opCode[2] ; sub_next_state.sub2_S3      ; clk      ;
+; N/A           ; None        ; -3.900 ns ; opCode[2] ; sub_current_state.sub2_S4   ; clk      ;
+; N/A           ; None        ; -3.900 ns ; opCode[2] ; sub_next_state.sub2_S4      ; clk      ;
+; N/A           ; None        ; -3.900 ns ; opCode[2] ; sub_next_state.sub2_S0      ; clk      ;
+; N/A           ; None        ; -4.000 ns ; opCode[2] ; add_current_state.add2_S0   ; clk      ;
+; N/A           ; None        ; -4.000 ns ; opCode[2] ; x_or_current_state.x_or2_S0 ; clk      ;
+; N/A           ; None        ; -4.000 ns ; opCode[1] ; and_current_state.and2__S2  ; clk      ;
+; N/A           ; None        ; -4.100 ns ; B[3]      ; Carry$latch                 ; clk      ;
+; N/A           ; None        ; -4.100 ns ; opCode[2] ; x_or_current_state.x_or2_S1 ; clk      ;
+; N/A           ; None        ; -4.100 ns ; opCode[2] ; x_or_current_state.x_or2_S3 ; clk      ;
+; N/A           ; None        ; -4.200 ns ; A[0]      ; Carry$latch                 ; clk      ;
+; N/A           ; None        ; -4.200 ns ; opCode[2] ; add_next_state.add2_S1      ; clk      ;
+; N/A           ; None        ; -4.200 ns ; opCode[2] ; x_or_next_state.x_or2_S1    ; clk      ;
+; N/A           ; None        ; -4.200 ns ; opCode[2] ; x_or_current_state.x_or2_S2 ; clk      ;
+; N/A           ; None        ; -4.200 ns ; opCode[2] ; x_or_next_state.x_or2_S2    ; clk      ;
+; N/A           ; None        ; -4.200 ns ; opCode[2] ; add_next_state.add2_S2      ; clk      ;
+; N/A           ; None        ; -4.200 ns ; opCode[2] ; x_or_next_state.x_or2_S3    ; clk      ;
+; N/A           ; None        ; -4.200 ns ; opCode[2] ; add_current_state.add2_S3   ; clk      ;
+; N/A           ; None        ; -4.200 ns ; opCode[2] ; add_next_state.add2_S3      ; clk      ;
+; N/A           ; None        ; -4.200 ns ; opCode[2] ; x_or_current_state.x_or2_S4 ; clk      ;
+; N/A           ; None        ; -4.200 ns ; opCode[2] ; x_or_next_state.x_or2_S4    ; clk      ;
+; N/A           ; None        ; -4.200 ns ; opCode[2] ; add_current_state.add2_S4   ; clk      ;
+; N/A           ; None        ; -4.200 ns ; opCode[2] ; add_next_state.add2_S4      ; clk      ;
+; N/A           ; None        ; -4.200 ns ; opCode[2] ; add_next_state.add2_S0      ; clk      ;
+; N/A           ; None        ; -4.200 ns ; opCode[2] ; x_or_next_state.x_or2_S0    ; clk      ;
+; N/A           ; None        ; -4.200 ns ; opCode[0] ; and_current_state.and2__S2  ; clk      ;
+; N/A           ; None        ; -4.300 ns ; opCode[2] ; add_current_state.add2_S1   ; clk      ;
+; N/A           ; None        ; -4.300 ns ; opCode[2] ; add_current_state.add2_S2   ; clk      ;
+; N/A           ; None        ; -4.300 ns ; opCode[2] ; and_current_state.and2__S4  ; clk      ;
+; N/A           ; None        ; -4.300 ns ; opCode[1] ; add_current_state.add2_S0   ; clk      ;
+; N/A           ; None        ; -4.300 ns ; opCode[0] ; x_or_current_state.x_or2_S0 ; clk      ;
+; N/A           ; None        ; -4.400 ns ; opCode[0] ; x_or_current_state.x_or2_S1 ; clk      ;
+; N/A           ; None        ; -4.400 ns ; opCode[0] ; x_or_current_state.x_or2_S3 ; clk      ;
+; N/A           ; None        ; -4.500 ns ; opCode[1] ; add_next_state.add2_S1      ; clk      ;
+; N/A           ; None        ; -4.500 ns ; opCode[1] ; add_next_state.add2_S2      ; clk      ;
+; N/A           ; None        ; -4.500 ns ; opCode[1] ; add_current_state.add2_S3   ; clk      ;
+; N/A           ; None        ; -4.500 ns ; opCode[1] ; add_next_state.add2_S3      ; clk      ;
+; N/A           ; None        ; -4.500 ns ; opCode[1] ; add_current_state.add2_S4   ; clk      ;
+; N/A           ; None        ; -4.500 ns ; opCode[1] ; add_next_state.add2_S4      ; clk      ;
+; N/A           ; None        ; -4.500 ns ; opCode[1] ; add_next_state.add2_S0      ; clk      ;
+; N/A           ; None        ; -4.500 ns ; opCode[1] ; x_or_current_state.x_or2_S0 ; clk      ;
+; N/A           ; None        ; -4.500 ns ; opCode[0] ; x_or_next_state.x_or2_S1    ; clk      ;
+; N/A           ; None        ; -4.500 ns ; opCode[0] ; x_or_current_state.x_or2_S2 ; clk      ;
+; N/A           ; None        ; -4.500 ns ; opCode[0] ; x_or_next_state.x_or2_S2    ; clk      ;
+; N/A           ; None        ; -4.500 ns ; opCode[0] ; x_or_next_state.x_or2_S3    ; clk      ;
+; N/A           ; None        ; -4.500 ns ; opCode[0] ; x_or_current_state.x_or2_S4 ; clk      ;
+; N/A           ; None        ; -4.500 ns ; opCode[0] ; x_or_next_state.x_or2_S4    ; clk      ;
+; N/A           ; None        ; -4.500 ns ; opCode[0] ; add_current_state.add2_S0   ; clk      ;
+; N/A           ; None        ; -4.500 ns ; opCode[0] ; x_or_next_state.x_or2_S0    ; clk      ;
+; N/A           ; None        ; -4.600 ns ; opCode[1] ; add_current_state.add2_S1   ; clk      ;
+; N/A           ; None        ; -4.600 ns ; opCode[1] ; x_or_current_state.x_or2_S1 ; clk      ;
+; N/A           ; None        ; -4.600 ns ; opCode[1] ; add_current_state.add2_S2   ; clk      ;
+; N/A           ; None        ; -4.600 ns ; opCode[1] ; x_or_current_state.x_or2_S3 ; clk      ;
+; N/A           ; None        ; -4.600 ns ; opCode[1] ; sub_current_state.sub2_S0   ; clk      ;
+; N/A           ; None        ; -4.600 ns ; opCode[0] ; sub_current_state.sub2_S0   ; clk      ;
+; N/A           ; None        ; -4.700 ns ; opCode[1] ; x_or_next_state.x_or2_S1    ; clk      ;
+; N/A           ; None        ; -4.700 ns ; opCode[1] ; x_or_current_state.x_or2_S2 ; clk      ;
+; N/A           ; None        ; -4.700 ns ; opCode[1] ; x_or_next_state.x_or2_S2    ; clk      ;
+; N/A           ; None        ; -4.700 ns ; opCode[1] ; x_or_next_state.x_or2_S3    ; clk      ;
+; N/A           ; None        ; -4.700 ns ; opCode[1] ; x_or_current_state.x_or2_S4 ; clk      ;
+; N/A           ; None        ; -4.700 ns ; opCode[1] ; x_or_next_state.x_or2_S4    ; clk      ;
+; N/A           ; None        ; -4.700 ns ; opCode[1] ; x_or_next_state.x_or2_S0    ; clk      ;
+; N/A           ; None        ; -4.700 ns ; opCode[0] ; add_next_state.add2_S1      ; clk      ;
+; N/A           ; None        ; -4.700 ns ; opCode[0] ; add_next_state.add2_S2      ; clk      ;
+; N/A           ; None        ; -4.700 ns ; opCode[0] ; add_current_state.add2_S3   ; clk      ;
+; N/A           ; None        ; -4.700 ns ; opCode[0] ; add_next_state.add2_S3      ; clk      ;
+; N/A           ; None        ; -4.700 ns ; opCode[0] ; add_current_state.add2_S4   ; clk      ;
+; N/A           ; None        ; -4.700 ns ; opCode[0] ; add_next_state.add2_S4      ; clk      ;
+; N/A           ; None        ; -4.700 ns ; opCode[0] ; add_next_state.add2_S0      ; clk      ;
+; N/A           ; None        ; -4.800 ns ; opCode[2] ; and_current_state.and2__S0  ; clk      ;
+; N/A           ; None        ; -4.800 ns ; opCode[1] ; sub_current_state.sub2_S1   ; clk      ;
+; N/A           ; None        ; -4.800 ns ; opCode[1] ; sub_next_state.sub2_S1      ; clk      ;
+; N/A           ; None        ; -4.800 ns ; opCode[1] ; sub_current_state.sub2_S2   ; clk      ;
+; N/A           ; None        ; -4.800 ns ; opCode[1] ; sub_next_state.sub2_S2      ; clk      ;
+; N/A           ; None        ; -4.800 ns ; opCode[1] ; sub_current_state.sub2_S3   ; clk      ;
+; N/A           ; None        ; -4.800 ns ; opCode[1] ; sub_next_state.sub2_S3      ; clk      ;
+; N/A           ; None        ; -4.800 ns ; opCode[1] ; and_current_state.and2__S4  ; clk      ;
+; N/A           ; None        ; -4.800 ns ; opCode[1] ; sub_current_state.sub2_S4   ; clk      ;
+; N/A           ; None        ; -4.800 ns ; opCode[1] ; sub_next_state.sub2_S4      ; clk      ;
+; N/A           ; None        ; -4.800 ns ; opCode[1] ; sub_next_state.sub2_S0      ; clk      ;
+; N/A           ; None        ; -4.800 ns ; opCode[0] ; sub_current_state.sub2_S1   ; clk      ;
+; N/A           ; None        ; -4.800 ns ; opCode[0] ; sub_next_state.sub2_S1      ; clk      ;
+; N/A           ; None        ; -4.800 ns ; opCode[0] ; add_current_state.add2_S1   ; clk      ;
+; N/A           ; None        ; -4.800 ns ; opCode[0] ; sub_current_state.sub2_S2   ; clk      ;
+; N/A           ; None        ; -4.800 ns ; opCode[0] ; sub_next_state.sub2_S2      ; clk      ;
+; N/A           ; None        ; -4.800 ns ; opCode[0] ; add_current_state.add2_S2   ; clk      ;
+; N/A           ; None        ; -4.800 ns ; opCode[0] ; sub_current_state.sub2_S3   ; clk      ;
+; N/A           ; None        ; -4.800 ns ; opCode[0] ; sub_next_state.sub2_S3      ; clk      ;
+; N/A           ; None        ; -4.800 ns ; opCode[0] ; sub_current_state.sub2_S4   ; clk      ;
+; N/A           ; None        ; -4.800 ns ; opCode[0] ; sub_next_state.sub2_S4      ; clk      ;
+; N/A           ; None        ; -4.800 ns ; opCode[0] ; sub_next_state.sub2_S0      ; clk      ;
+; N/A           ; None        ; -5.000 ns ; opCode[2] ; and_current_state.and2__S1  ; clk      ;
+; N/A           ; None        ; -5.000 ns ; opCode[2] ; and_next_state.and2__S1     ; clk      ;
+; N/A           ; None        ; -5.000 ns ; opCode[2] ; and_next_state.and2__S2     ; clk      ;
+; N/A           ; None        ; -5.000 ns ; opCode[2] ; and_current_state.and2__S3  ; clk      ;
+; N/A           ; None        ; -5.000 ns ; opCode[2] ; and_next_state.and2__S3     ; clk      ;
+; N/A           ; None        ; -5.000 ns ; opCode[2] ; and_next_state.and2__S4     ; clk      ;
+; N/A           ; None        ; -5.000 ns ; opCode[2] ; and_next_state.and2__S0     ; clk      ;
+; N/A           ; None        ; -5.000 ns ; opCode[0] ; and_current_state.and2__S4  ; clk      ;
+; N/A           ; None        ; -5.300 ns ; opCode[1] ; and_current_state.and2__S0  ; clk      ;
+; N/A           ; None        ; -5.500 ns ; opCode[1] ; and_current_state.and2__S1  ; clk      ;
+; N/A           ; None        ; -5.500 ns ; opCode[1] ; and_next_state.and2__S1     ; clk      ;
+; N/A           ; None        ; -5.500 ns ; opCode[1] ; and_next_state.and2__S2     ; clk      ;
+; N/A           ; None        ; -5.500 ns ; opCode[1] ; and_current_state.and2__S3  ; clk      ;
+; N/A           ; None        ; -5.500 ns ; opCode[1] ; and_next_state.and2__S3     ; clk      ;
+; N/A           ; None        ; -5.500 ns ; opCode[1] ; and_next_state.and2__S4     ; clk      ;
+; N/A           ; None        ; -5.500 ns ; opCode[1] ; and_next_state.and2__S0     ; clk      ;
+; N/A           ; None        ; -5.500 ns ; opCode[0] ; and_current_state.and2__S0  ; clk      ;
+; N/A           ; None        ; -5.700 ns ; opCode[0] ; and_current_state.and2__S1  ; clk      ;
+; N/A           ; None        ; -5.700 ns ; opCode[0] ; and_next_state.and2__S1     ; clk      ;
+; N/A           ; None        ; -5.700 ns ; opCode[0] ; and_next_state.and2__S2     ; clk      ;
+; N/A           ; None        ; -5.700 ns ; opCode[0] ; and_current_state.and2__S3  ; clk      ;
+; N/A           ; None        ; -5.700 ns ; opCode[0] ; and_next_state.and2__S3     ; clk      ;
+; N/A           ; None        ; -5.700 ns ; opCode[0] ; and_next_state.and2__S4     ; clk      ;
+; N/A           ; None        ; -5.700 ns ; opCode[0] ; and_next_state.and2__S0     ; clk      ;
++---------------+-------------+-----------+-----------+-----------------------------+----------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Classic Timing Analyzer
+    Info: Version 8.1 Build 163 10/28/2008 SJ Web Edition
+    Info: Processing started: Fri Apr 21 11:41:51 2023
+Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off lab -c lab
+Info: Started post-fitting delay annotation
+Info: Delay annotation completed successfully
+Warning: Timing Analysis is analyzing one or more combinational loops as latches
+    Warning: Node "C[0]$latch" is a latch
+    Warning: Node "C[1]$latch" is a latch
+    Warning: Node "C[2]$latch" is a latch
+    Warning: Node "C[3]$latch" is a latch
+    Warning: Node "tmp2[1]" is a latch
+    Warning: Node "Carry$latch" is a latch
+    Warning: Node "temp2[1]" is a latch
+    Warning: Node "temp[1]" is a latch
+    Warning: Node "temp3[1]" is a latch
+    Warning: Node "tmp3[1]" is a latch
+    Warning: Node "Zero$latch" is a latch
+    Warning: Node "tmp[1]" is a latch
+Warning: Found pins functioning as undefined clocks and/or memory enables
+    Info: Assuming node "clk" is an undefined clock
+Warning: Found 41 node(s) in clock paths which may be acting as ripple and/or gated clocks -- node(s) analyzed as buffer(s) resulting in clock skew
+    Info: Detected gated clock "Carry~1068" as buffer
+    Info: Detected ripple clock "sub_current_state.sub2_S0" as buffer
+    Info: Detected ripple clock "and_current_state.and2__S0" as buffer
+    Info: Detected gated clock "tmp[1]~0" as buffer
+    Info: Detected gated clock "tmp3[1]~11" as buffer
+    Info: Detected gated clock "tmp2[1]~11" as buffer
+    Info: Detected gated clock "Carry~1049" as buffer
+    Info: Detected ripple clock "x_or_current_state.x_or2_S0" as buffer
+    Info: Detected ripple clock "add_current_state.add2_S0" as buffer
+    Info: Detected gated clock "C[3]~2956" as buffer
+    Info: Detected gated clock "C[3]~2955" as buffer
+    Info: Detected ripple clock "add_current_state.add2_S4" as buffer
+    Info: Detected ripple clock "x_or_current_state.x_or2_S4" as buffer
+    Info: Detected ripple clock "sub_current_state.sub2_S4" as buffer
+    Info: Detected gated clock "C[3]~2954" as buffer
+    Info: Detected ripple clock "and_current_state.and2__S4" as buffer
+    Info: Detected gated clock "C[2]~2952" as buffer
+    Info: Detected gated clock "C[2]~2951" as buffer
+    Info: Detected ripple clock "add_current_state.add2_S3" as buffer
+    Info: Detected ripple clock "x_or_current_state.x_or2_S3" as buffer
+    Info: Detected ripple clock "and_current_state.and2__S3" as buffer
+    Info: Detected gated clock "C[2]~29" as buffer
+    Info: Detected ripple clock "sub_current_state.sub2_S3" as buffer
+    Info: Detected gated clock "C[1]~2949" as buffer
+    Info: Detected gated clock "C[1]~2948" as buffer
+    Info: Detected ripple clock "add_current_state.add2_S2" as buffer
+    Info: Detected ripple clock "x_or_current_state.x_or2_S2" as buffer
+    Info: Detected ripple clock "and_current_state.and2__S2" as buffer
+    Info: Detected gated clock "C[1]~44" as buffer
+    Info: Detected ripple clock "sub_current_state.sub2_S2" as buffer
+    Info: Detected gated clock "C[0]~2946" as buffer
+    Info: Detected gated clock "C[0]~2945" as buffer
+    Info: Detected ripple clock "current_state.do_x_or" as buffer
+    Info: Detected ripple clock "x_or_current_state.x_or2_S1" as buffer
+    Info: Detected ripple clock "current_state.do_add" as buffer
+    Info: Detected ripple clock "add_current_state.add2_S1" as buffer
+    Info: Detected gated clock "C[0]~25" as buffer
+    Info: Detected ripple clock "current_state.do_sub" as buffer
+    Info: Detected ripple clock "sub_current_state.sub2_S1" as buffer
+    Info: Detected ripple clock "current_state.do_and" as buffer
+    Info: Detected ripple clock "and_current_state.and2__S1" as buffer
+Info: Clock "clk" has Internal fmax of 50.0 MHz between source register "temp[1]" and destination register "Carry$latch" (period= 20.0 ns)
+    Info: + Longest register to register delay is 7.500 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC8_C28; Fanout = 3; REG Node = 'temp[1]'
+        Info: 2: + IC(0.100 ns) + CELL(1.000 ns) = 1.100 ns; Loc. = LC1_C28; Fanout = 1; COMB Node = 'Carry~1041'
+        Info: 3: + IC(0.600 ns) + CELL(1.000 ns) = 2.700 ns; Loc. = LC4_C30; Fanout = 1; COMB Node = 'Carry~1042'
+        Info: 4: + IC(0.100 ns) + CELL(0.700 ns) = 3.500 ns; Loc. = LC5_C30; Fanout = 1; COMB Node = 'Carry~1065'
+        Info: 5: + IC(0.000 ns) + CELL(1.000 ns) = 4.500 ns; Loc. = LC6_C30; Fanout = 1; COMB Node = 'Carry~1048'
+        Info: 6: + IC(0.100 ns) + CELL(1.100 ns) = 5.700 ns; Loc. = LC1_C30; Fanout = 1; COMB Node = 'Carry~1025'
+        Info: 7: + IC(0.100 ns) + CELL(0.800 ns) = 6.600 ns; Loc. = LC2_C30; Fanout = 1; COMB Node = 'Carry~1026'
+        Info: 8: + IC(0.100 ns) + CELL(0.800 ns) = 7.500 ns; Loc. = LC3_C30; Fanout = 1; REG Node = 'Carry$latch'
+        Info: Total cell delay = 6.400 ns ( 85.33 % )
+        Info: Total interconnect delay = 1.100 ns ( 14.67 % )
+    Info: - Smallest clock skew is -0.400 ns
+        Info: + Shortest clock path from clock "clk" to destination register is 4.600 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.300 ns) = 1.300 ns; Loc. = PIN_55; Fanout = 44; CLK Node = 'clk'
+            Info: 2: + IC(0.200 ns) + CELL(0.300 ns) = 1.800 ns; Loc. = LC1_C19; Fanout = 13; REG Node = 'current_state.do_x_or'
+            Info: 3: + IC(0.900 ns) + CELL(0.800 ns) = 3.500 ns; Loc. = LC8_C30; Fanout = 1; COMB Node = 'Carry~1049'
+            Info: 4: + IC(0.100 ns) + CELL(1.000 ns) = 4.600 ns; Loc. = LC3_C30; Fanout = 1; REG Node = 'Carry$latch'
+            Info: Total cell delay = 3.400 ns ( 73.91 % )
+            Info: Total interconnect delay = 1.200 ns ( 26.09 % )
+        Info: - Longest clock path from clock "clk" to source register is 5.000 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.300 ns) = 1.300 ns; Loc. = PIN_55; Fanout = 44; CLK Node = 'clk'
+            Info: 2: + IC(0.200 ns) + CELL(0.300 ns) = 1.800 ns; Loc. = LC1_C32; Fanout = 7; REG Node = 'current_state.do_sub'
+            Info: 3: + IC(0.500 ns) + CELL(1.000 ns) = 3.300 ns; Loc. = LC5_C34; Fanout = 3; COMB Node = 'C[0]~25'
+            Info: 4: + IC(0.700 ns) + CELL(1.000 ns) = 5.000 ns; Loc. = LC8_C28; Fanout = 3; REG Node = 'temp[1]'
+            Info: Total cell delay = 3.600 ns ( 72.00 % )
+            Info: Total interconnect delay = 1.400 ns ( 28.00 % )
+    Info: + Micro clock to output delay of source is 0.000 ns
+    Info: + Micro setup delay of destination is 2.100 ns
+    Info: Delay path is controlled by inverted clocks -- if clock duty cycle is 50%, fmax is divided by two
+Warning: Circuit may not operate. Detected 25 non-operational path(s) clocked by clock "clk" with clock skew larger than data delay. See Compilation Report for details.
+Info: Found hold time violation between source  pin or register "current_state.do_and" and destination pin or register "C[0]$latch" for clock "clk" (Hold time is 2.2 ns)
+    Info: + Largest clock skew is 5.000 ns
+        Info: + Longest clock path from clock "clk" to destination register is 6.500 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.300 ns) = 1.300 ns; Loc. = PIN_55; Fanout = 44; CLK Node = 'clk'
+            Info: 2: + IC(0.200 ns) + CELL(0.300 ns) = 1.800 ns; Loc. = LC1_C19; Fanout = 13; REG Node = 'current_state.do_x_or'
+            Info: 3: + IC(0.700 ns) + CELL(1.100 ns) = 3.600 ns; Loc. = LC8_C20; Fanout = 1; COMB Node = 'C[0]~2945'
+            Info: 4: + IC(0.800 ns) + CELL(1.000 ns) = 5.400 ns; Loc. = LC8_C34; Fanout = 1; COMB Node = 'C[0]~2946'
+            Info: 5: + IC(0.100 ns) + CELL(1.000 ns) = 6.500 ns; Loc. = LC6_C34; Fanout = 3; REG Node = 'C[0]$latch'
+            Info: Total cell delay = 4.700 ns ( 72.31 % )
+            Info: Total interconnect delay = 1.800 ns ( 27.69 % )
+        Info: - Shortest clock path from clock "clk" to source register is 1.500 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.300 ns) = 1.300 ns; Loc. = PIN_55; Fanout = 44; CLK Node = 'clk'
+            Info: 2: + IC(0.200 ns) + CELL(0.000 ns) = 1.500 ns; Loc. = LC2_C32; Fanout = 16; REG Node = 'current_state.do_and'
+            Info: Total cell delay = 1.300 ns ( 86.67 % )
+            Info: Total interconnect delay = 0.200 ns ( 13.33 % )
+    Info: - Micro clock to output delay of source is 0.300 ns
+    Info: - Shortest register to register delay is 2.500 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC2_C32; Fanout = 16; REG Node = 'current_state.do_and'
+        Info: 2: + IC(0.500 ns) + CELL(1.100 ns) = 1.600 ns; Loc. = LC7_C34; Fanout = 1; COMB Node = 'C[0]~2944'
+        Info: 3: + IC(0.100 ns) + CELL(0.800 ns) = 2.500 ns; Loc. = LC6_C34; Fanout = 3; REG Node = 'C[0]$latch'
+        Info: Total cell delay = 1.900 ns ( 76.00 % )
+        Info: Total interconnect delay = 0.600 ns ( 24.00 % )
+    Info: + Micro hold delay of destination is 0.000 ns
+    Info: Delay path is controlled by inverted clocks -- if clock duty cycle is 50%, fmax is divided by two
+Info: tsu for register "Zero$latch" (data pin = "A[0]", clock pin = "clk") is 8.900 ns
+    Info: + Longest pin to register delay is 12.200 ns
+        Info: 1: + IC(0.000 ns) + CELL(2.800 ns) = 2.800 ns; Loc. = PIN_95; Fanout = 4; PIN Node = 'A[0]'
+        Info: 2: + IC(1.900 ns) + CELL(1.000 ns) = 5.700 ns; Loc. = LC1_C34; Fanout = 2; COMB Node = 'C~2957'
+        Info: 3: + IC(0.400 ns) + CELL(1.100 ns) = 7.200 ns; Loc. = LC5_C35; Fanout = 1; COMB Node = 'Zero~346'
+        Info: 4: + IC(0.400 ns) + CELL(1.000 ns) = 8.600 ns; Loc. = LC2_C36; Fanout = 1; COMB Node = 'Zero~347'
+        Info: 5: + IC(0.100 ns) + CELL(0.800 ns) = 9.500 ns; Loc. = LC3_C36; Fanout = 1; COMB Node = 'Zero~349'
+        Info: 6: + IC(0.100 ns) + CELL(0.800 ns) = 10.400 ns; Loc. = LC7_C36; Fanout = 1; COMB Node = 'Zero~353'
+        Info: 7: + IC(0.100 ns) + CELL(0.800 ns) = 11.300 ns; Loc. = LC8_C36; Fanout = 1; COMB Node = 'Zero~354'
+        Info: 8: + IC(0.100 ns) + CELL(0.800 ns) = 12.200 ns; Loc. = LC1_C36; Fanout = 1; REG Node = 'Zero$latch'
+        Info: Total cell delay = 9.100 ns ( 74.59 % )
+        Info: Total interconnect delay = 3.100 ns ( 25.41 % )
+    Info: + Micro setup delay of destination is 2.100 ns
+    Info: - Shortest clock path from clock "clk" to destination register is 5.400 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.300 ns) = 1.300 ns; Loc. = PIN_55; Fanout = 44; CLK Node = 'clk'
+        Info: 2: + IC(0.200 ns) + CELL(0.300 ns) = 1.800 ns; Loc. = LC2_C33; Fanout = 3; REG Node = 'sub_current_state.sub2_S4'
+        Info: 3: + IC(0.800 ns) + CELL(1.000 ns) = 3.600 ns; Loc. = LC3_C21; Fanout = 3; COMB Node = 'C[3]~2956'
+        Info: 4: + IC(0.800 ns) + CELL(1.000 ns) = 5.400 ns; Loc. = LC1_C36; Fanout = 1; REG Node = 'Zero$latch'
+        Info: Total cell delay = 3.600 ns ( 66.67 % )
+        Info: Total interconnect delay = 1.800 ns ( 33.33 % )
+Info: tco from clock "clk" to destination pin "Sign" through register "tmp3[1]" is 15.100 ns
+    Info: + Longest clock path from clock "clk" to source register is 5.300 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.300 ns) = 1.300 ns; Loc. = PIN_55; Fanout = 44; CLK Node = 'clk'
+        Info: 2: + IC(0.200 ns) + CELL(0.300 ns) = 1.800 ns; Loc. = LC1_C23; Fanout = 5; REG Node = 'add_current_state.add2_S3'
+        Info: 3: + IC(0.700 ns) + CELL(1.000 ns) = 3.500 ns; Loc. = LC5_C20; Fanout = 2; COMB Node = 'tmp3[1]~11'
+        Info: 4: + IC(0.800 ns) + CELL(1.000 ns) = 5.300 ns; Loc. = LC6_C26; Fanout = 2; REG Node = 'tmp3[1]'
+        Info: Total cell delay = 3.600 ns ( 67.92 % )
+        Info: Total interconnect delay = 1.700 ns ( 32.08 % )
+    Info: + Micro clock to output delay of source is 0.000 ns
+    Info: + Longest register to pin delay is 9.800 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC6_C26; Fanout = 2; REG Node = 'tmp3[1]'
+        Info: 2: + IC(0.600 ns) + CELL(0.800 ns) = 1.400 ns; Loc. = LC3_C29; Fanout = 2; COMB Node = 'Add12~20'
+        Info: 3: + IC(0.600 ns) + CELL(0.400 ns) = 2.400 ns; Loc. = LC5_C36; Fanout = 1; COMB Node = 'C[3]~3038'
+        Info: 4: + IC(0.000 ns) + CELL(1.000 ns) = 3.400 ns; Loc. = LC6_C36; Fanout = 2; COMB Node = 'C[3]~2999'
+        Info: 5: + IC(1.000 ns) + CELL(0.800 ns) = 5.200 ns; Loc. = LC4_C21; Fanout = 1; COMB Node = 'C[3]$latch~3'
+        Info: 6: + IC(0.800 ns) + CELL(3.800 ns) = 9.800 ns; Loc. = PIN_14; Fanout = 0; PIN Node = 'Sign'
+        Info: Total cell delay = 6.800 ns ( 69.39 % )
+        Info: Total interconnect delay = 3.000 ns ( 30.61 % )
+Info: Longest tpd from source pin "B[3]" to destination pin "Sign" is 13.700 ns
+    Info: 1: + IC(0.000 ns) + CELL(2.800 ns) = 2.800 ns; Loc. = PIN_130; Fanout = 6; PIN Node = 'B[3]'
+    Info: 2: + IC(1.200 ns) + CELL(1.000 ns) = 5.000 ns; Loc. = LC6_C29; Fanout = 2; COMB Node = 'Add5~30'
+    Info: 3: + IC(0.600 ns) + CELL(0.700 ns) = 6.300 ns; Loc. = LC5_C36; Fanout = 1; COMB Node = 'C[3]~3038'
+    Info: 4: + IC(0.000 ns) + CELL(1.000 ns) = 7.300 ns; Loc. = LC6_C36; Fanout = 2; COMB Node = 'C[3]~2999'
+    Info: 5: + IC(1.000 ns) + CELL(0.800 ns) = 9.100 ns; Loc. = LC4_C21; Fanout = 1; COMB Node = 'C[3]$latch~3'
+    Info: 6: + IC(0.800 ns) + CELL(3.800 ns) = 13.700 ns; Loc. = PIN_14; Fanout = 0; PIN Node = 'Sign'
+    Info: Total cell delay = 10.100 ns ( 73.72 % )
+    Info: Total interconnect delay = 3.600 ns ( 26.28 % )
+Info: th for register "C[1]$latch" (data pin = "A[1]", clock pin = "clk") is 2.300 ns
+    Info: + Longest clock path from clock "clk" to destination register is 7.100 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.300 ns) = 1.300 ns; Loc. = PIN_55; Fanout = 44; CLK Node = 'clk'
+        Info: 2: + IC(0.200 ns) + CELL(0.300 ns) = 1.800 ns; Loc. = LC2_C19; Fanout = 13; REG Node = 'current_state.do_add'
+        Info: 3: + IC(0.800 ns) + CELL(1.000 ns) = 3.600 ns; Loc. = LC1_C27; Fanout = 2; COMB Node = 'C[1]~2948'
+        Info: 4: + IC(0.700 ns) + CELL(1.100 ns) = 5.400 ns; Loc. = LC6_C32; Fanout = 1; COMB Node = 'C[1]~2949'
+        Info: 5: + IC(0.700 ns) + CELL(1.000 ns) = 7.100 ns; Loc. = LC2_C28; Fanout = 4; REG Node = 'C[1]$latch'
+        Info: Total cell delay = 4.700 ns ( 66.20 % )
+        Info: Total interconnect delay = 2.400 ns ( 33.80 % )
+    Info: + Micro hold delay of destination is 0.000 ns
+    Info: - Shortest pin to register delay is 4.800 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.300 ns) = 1.300 ns; Loc. = PIN_54; Fanout = 8; PIN Node = 'A[1]'
+        Info: 2: + IC(0.500 ns) + CELL(0.600 ns) = 2.400 ns; Loc. = LC4_C26; Fanout = 1; COMB Node = 'C[1]~3046'
+        Info: 3: + IC(0.000 ns) + CELL(1.000 ns) = 3.400 ns; Loc. = LC5_C26; Fanout = 1; COMB Node = 'C[1]~2997'
+        Info: 4: + IC(0.600 ns) + CELL(0.800 ns) = 4.800 ns; Loc. = LC2_C28; Fanout = 4; REG Node = 'C[1]$latch'
+        Info: Total cell delay = 3.700 ns ( 77.08 % )
+        Info: Total interconnect delay = 1.100 ns ( 22.92 % )
+Info: Quartus II Classic Timing Analyzer was successful. 0 errors, 16 warnings
+    Info: Peak virtual memory: 180 megabytes
+    Info: Processing ended: Fri Apr 21 11:41:51 2023
+    Info: Elapsed time: 00:00:00
+    Info: Total CPU time (on all processors): 00:00:00
+
+

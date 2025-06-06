@@ -1,0 +1,28 @@
+module lab2(a,sel,b);
+input[7:0]a;
+input[2:0]sel;
+output b;
+
+reg b;
+
+always@(*)
+begin
+if(sel==3'b000)
+b=a[0];
+else if(sel==3'b001)
+b=a[1];
+else if(sel==3'b010)
+b=a[2];
+else if(sel==3'b011)
+b=a[3];
+else if(sel==3'b100)
+b=a[4];
+else if(sel==3'b101)
+b=a[5];
+else if(sel==3'b110)
+b=a[6];
+else if(sel==3'b111)
+b=a[7];
+
+end 
+endmodule

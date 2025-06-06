@@ -1,0 +1,57 @@
+// DSCH 2.7a
+// 4/1/2023 10:48:49 PM
+// example
+
+module example( CLK,D,Q,Q2);
+ input CLK,D;
+ output Q,Q2;
+ wire w8,w9,w10,w11,w12,w13,w14,w15;
+ wire w16,w17,w18,w19,w20,w21;
+ nmos #(48) nmos_na1_la1(w9,w8,D); //  
+ nmos #(13) nmos_na2_la2(w8,vss,w2); //  
+ pmos #(48) pmos_na3_la3(w9,vdd,D); //  
+ pmos #(48) pmos_na4_la4(w9,vdd,w2); //  
+ nmos #(80) nmos_na5_la5(w3,w10,w9); //  
+ nmos #(13) nmos_na6_la6(w10,vss,w4); //  
+ pmos #(80) pmos_na7_la7(w3,vdd,w9); //  
+ pmos #(80) pmos_na8_la8(w3,vdd,w4); //  
+ nmos #(48) nmos_na9_la9(w12,w11,w2); //  
+ nmos #(13) nmos_na10_la10(w11,vss,w13); //  
+ pmos #(48) pmos_na11_la11(w12,vdd,w2); //  
+ pmos #(48) pmos_na12_la12(w12,vdd,w13); //  
+ nmos #(52) nmos_na13_la13(w4,w14,w3); //  
+ nmos #(13) nmos_na14_la14(w14,vss,w12); //  
+ pmos #(52) pmos_na15_la15(w4,vdd,w3); //  
+ pmos #(52) pmos_na16_la16(w4,vdd,w12); //  
+ pmos #(36) pmos_in17_la17(w13,vdd,D); //  
+ nmos #(36) nmos_in18_la18(w13,vss,D); //  
+ nmos #(48) nmos_na1_la19(w16,w15,w3); //  
+ nmos #(13) nmos_na2_la20(w15,vss,CLK); //  
+ pmos #(48) pmos_na3_la21(w16,vdd,w3); //  
+ pmos #(48) pmos_na4_la22(w16,vdd,CLK); //  
+ nmos #(59) nmos_na5_la23(Q,w17,w16); //  
+ nmos #(13) nmos_na6_la24(w17,vss,Q2); //  
+ pmos #(59) pmos_na7_la25(Q,vdd,w16); //  
+ pmos #(59) pmos_na8_la26(Q,vdd,Q2); //  
+ nmos #(48) nmos_na9_la27(w19,w18,CLK); //  
+ nmos #(13) nmos_na10_la28(w18,vss,w20); //  
+ pmos #(48) pmos_na11_la29(w19,vdd,CLK); //  
+ pmos #(48) pmos_na12_la30(w19,vdd,w20); //  
+ nmos #(59) nmos_na13_la31(Q2,w21,Q); //  
+ nmos #(13) nmos_na14_la32(w21,vss,w19); //  
+ pmos #(59) pmos_na15_la33(Q2,vdd,Q); //  
+ pmos #(59) pmos_na16_la34(Q2,vdd,w19); //  
+ pmos #(36) pmos_in17_la35(w20,vdd,w3); //  
+ nmos #(36) nmos_in18_la36(w20,vss,w3); //  
+ pmos #(44) pmos_in37(w2,vdd,CLK); //  
+ nmos #(44) nmos_in38(w2,vss,CLK); //  
+endmodule
+
+// Simulation parameters in Verilog Format
+always
+#1000 CLK=~CLK;
+#2000 D=~D;
+
+// Simulation parameters
+// CLK CLK 10 10
+// D CLK 20 20

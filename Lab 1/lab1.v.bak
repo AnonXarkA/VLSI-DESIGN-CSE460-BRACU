@@ -1,0 +1,9 @@
+module lab1(f,a,b);
+input a,b;
+output f;
+
+assign x = ~(a | b);
+assign y = a & b;
+assign f = x | y;
+
+endmodule

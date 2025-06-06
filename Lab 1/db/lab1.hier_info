@@ -1,0 +1,8 @@
+|lab1
+f <= comb~0.DB_MAX_OUTPUT_PORT_TYPE
+a => d.IN0
+a => c.IN0
+b => d.IN1
+b => c.IN1
+
+

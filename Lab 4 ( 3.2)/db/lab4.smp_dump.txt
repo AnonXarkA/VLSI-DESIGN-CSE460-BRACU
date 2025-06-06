@@ -1,0 +1,6 @@
+
+State Machine - |lab4|current_state
+Name current_state.state0 current_state.state2 current_state.state1 
+current_state.state0 0 0 0 
+current_state.state1 1 0 1 
+current_state.state2 1 1 0 
